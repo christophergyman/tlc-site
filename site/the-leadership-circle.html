@@ -416,8 +416,8 @@ nav.scrolled .nav-links a { color: var(--grey-600); }
 .services-slide {
   position: absolute; inset: 0;
   display: grid; grid-template-columns: 1fr 1fr;
-  gap: 5rem; align-items: center;
-  max-width: 1140px; margin: 0 auto;
+  gap: 6rem; align-items: center;
+  max-width: 1400px; margin: 0 auto;
   padding: 0 var(--page-pad);
   opacity: 0;
   transform: translateY(40px);
@@ -428,7 +428,7 @@ nav.scrolled .nav-links a { color: var(--grey-600); }
   opacity: 1; transform: translateY(0); pointer-events: auto;
 }
 .services-image {
-  aspect-ratio: 4/3;
+  aspect-ratio: 3/2;
   border-radius: 4px;
   overflow: hidden;
 }
@@ -441,18 +441,19 @@ nav.scrolled .nav-links a { color: var(--grey-600); }
 }
 .services-text h3 {
   font-family: 'DM Serif Display', serif;
-  font-size: 2rem; font-weight: 400;
+  font-size: 2.75rem; font-weight: 400;
   line-height: 1.25; margin-bottom: 0.75rem;
 }
 .services-text h4 {
   font-family: 'DM Serif Display', serif;
-  font-size: 1.15rem; font-weight: 400; font-style: italic;
+  font-size: 1.4rem; font-weight: 400; font-style: italic;
   color: var(--teal); margin-bottom: 1.5rem;
 }
 .services-text p {
-  color: var(--grey-600); font-size: 0.95rem;
+  color: var(--grey-600); font-size: 1.1rem;
   line-height: 1.8; font-weight: 300;
 }
+.services-text .section-tag { font-size: 0.8rem; }
 .services-progress {
   position: absolute; right: 3rem; top: 50%;
   transform: translateY(-50%);
@@ -849,7 +850,7 @@ footer {
 @media (min-width: 1440px) {
   .hero-content { max-width: 840px; }
   .belief-inner { max-width: 900px; }
-  .services-slide { max-width: 1320px; }
+  .services-slide { max-width: 1600px; }
   .stats-grid { max-width: 1140px; }
   .steps { max-width: 1140px; }
   .process-sub { max-width: 620px; }
