@@ -428,16 +428,16 @@ nav.scrolled .nav-links a { color: var(--grey-600); }
   opacity: 1; transform: translateY(0); pointer-events: auto;
 }
 .services-image {
-  aspect-ratio: 4/3; background: var(--teal-mist);
-  border: 1px solid var(--grey-100);
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center; gap: 0.75rem;
+  aspect-ratio: 4/3;
   border-radius: 4px;
+  overflow: hidden;
 }
-.services-image svg { color: var(--grey-200); }
-.services-image span {
-  font-size: 0.75rem; color: var(--grey-400);
-  letter-spacing: 0.1em; text-transform: uppercase;
+.services-image img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.services-slide[data-index="2"] .services-image img {
+  transform: scale(1.02);
 }
 .services-text h3 {
   font-family: 'DM Serif Display', serif;
@@ -850,40 +850,37 @@ footer {
 
     <div class="services-slide active" data-index="0">
       <div class="services-image">
-        <svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-        <span>Workshop Photography</span>
+        <img src="Photos/2025-10-14-14h33m45s773_quality12-2_quality12.jpg" alt="On-site leadership programme workshop in action">
       </div>
       <div class="services-text">
         <p class="section-tag">How We Help</p>
-        <h3>On-Site Leadership Programmes</h3>
+        <h3>Leadership Development</h3>
         <h4>Bespoke. Immersive. Results-Driven.</h4>
-        <p>Every programme is custom-built around your organisation's objectives, team dynamics, and industry context. No off-the-shelf playbooks. Our facilitators embed within your environment, delivering high-impact sessions that challenge, inspire, and equip your people to lead at the highest level.</p>
+        <p>We design bespoke leadership programmes that build self-awareness, sharpen decision-making and create leaders people genuinely want to follow. Every engagement is grounded in real business challenges — not theory.</p>
       </div>
     </div>
 
     <div class="services-slide" data-index="1">
       <div class="services-image">
-        <svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 3"/></svg>
-        <span>Coaching Session</span>
+        <img src="Photos/workshop hero.jpg" alt="High-performance workshop session">
       </div>
       <div class="services-text">
         <p class="section-tag">How We Help</p>
-        <h3>Executive Coaching</h3>
+        <h3>High-Performance Workshops</h3>
         <h4>One-to-One. High-Stakes. Transformative.</h4>
-        <p>Our coaches work directly with senior leaders navigating complex challenges — from stepping into new roles to leading through transformation. Every engagement is confidential, deeply personalised, and anchored in measurable behavioural outcomes.</p>
+        <p>Interactive, high-energy workshops that align teams around shared goals and unlock collective performance. From half-day intensives to multi-session series, each is crafted to shift mindsets and drive measurable results.</p>
       </div>
     </div>
 
     <div class="services-slide" data-index="2">
       <div class="services-image">
-        <svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 3h18v18H3z"/><path d="M3 12h18M12 3v18"/></svg>
-        <span>Team Strategy</span>
+        <img src="Photos/hkphoto.png" alt="Offsite team experience">
       </div>
       <div class="services-text">
         <p class="section-tag">How We Help</p>
-        <h3>Team Performance Diagnostics</h3>
+        <h3>Offsites</h3>
         <h4>Data-Led. Honest. Actionable.</h4>
-        <p>Before we coach, we diagnose. Using proprietary assessment tools and structured interviews, we map the dynamics, blind spots, and friction points within your leadership teams — giving you a clear, evidence-based foundation for targeted intervention.</p>
+        <p>Transformative offsite experiences that combine strategic work with team bonding. We handle the design and facilitation so your team can focus on what matters — alignment, connection and breakthrough thinking.</p>
       </div>
     </div>
 
@@ -1267,7 +1264,9 @@ document.head.insertAdjacentHTML('beforeend', '<style>.visible{opacity:1!importa
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     e.preventDefault();
-    const target = document.querySelector(a.getAttribute('href'));
+    const href = a.getAttribute('href');
+    if (href === '#') { window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
+    const target = document.querySelector(href);
     if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 });
