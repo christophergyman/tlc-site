@@ -320,9 +320,14 @@ nav.scrolled .nav-links a { color: var(--grey-600); }
   text-align: center; margin-bottom: 1.25rem;
 }
 .logo-strip-inner {
-  display: flex; align-items: center; gap: 3rem;
+  display: flex; align-items: center;
   animation: marquee 28s linear infinite;
   width: max-content;
+}
+.logo-set {
+  display: flex; align-items: center;
+  gap: 3rem; padding-right: 3rem;
+  flex-shrink: 0;
 }
 .logo-img {
   height: 36px; width: auto;
@@ -340,7 +345,7 @@ nav.scrolled .nav-links a { color: var(--grey-600); }
 }
 @keyframes marquee {
   0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  100% { transform: translateX(calc(-100% / 3)); }
 }
 
 /* ─── SECTION TAG ─── */
@@ -770,25 +775,41 @@ footer {
     <p class="logo-strip-label">Trusted by industry leaders</p>
     <div class="logo-strip-inner">
       <!-- Set 1 -->
-      <img src="Logos/nhl-logo-black-and-white-logos-transparent-hd.png.jpeg" alt="NHL" class="logo-img">
-      <span class="logo-placeholder">The Executive Centre</span>
-      <img src="Logos/Google- BIG.png" alt="Google" class="logo-img">
-      <img src="Logos/new-logos/chelsea-logo.png" alt="Chelsea FC" class="logo-img">
-      <img src="Logos/Clarksons_flag_borderless_white_rgb.png" alt="Clarksons" class="logo-img">
-      <span class="logo-placeholder">US Olympic</span>
-      <img src="Logos/England Cricket.png" alt="England Cricket" class="logo-img">
-      <img src="Logos/Guidepost-GGE-Logo.png" alt="Guidepost Global Education" class="logo-img">
-      <img src="Logos/new-logos/nba-logo.png" alt="NBA" class="logo-img">
+      <div class="logo-set">
+        <img src="Logos/nhl-logo-black-and-white-logos-transparent-hd.png.jpeg" alt="NHL" class="logo-img">
+        <span class="logo-placeholder">The Executive Centre</span>
+        <img src="Logos/Google- BIG.png" alt="Google" class="logo-img">
+        <img src="Logos/new-logos/chelsea-logo.png" alt="Chelsea FC" class="logo-img">
+        <img src="Logos/Clarksons_flag_borderless_white_rgb.png" alt="Clarksons" class="logo-img">
+        <span class="logo-placeholder">US Olympic</span>
+        <img src="Logos/England Cricket.png" alt="England Cricket" class="logo-img">
+        <img src="Logos/Guidepost-GGE-Logo.png" alt="Guidepost Global Education" class="logo-img">
+        <img src="Logos/new-logos/nba-logo.png" alt="NBA" class="logo-img">
+      </div>
       <!-- Set 2 (duplicate for seamless loop) -->
-      <img src="Logos/nhl-logo-black-and-white-logos-transparent-hd.png.jpeg" alt="NHL" class="logo-img">
-      <span class="logo-placeholder">The Executive Centre</span>
-      <img src="Logos/Google- BIG.png" alt="Google" class="logo-img">
-      <img src="Logos/new-logos/chelsea-logo.png" alt="Chelsea FC" class="logo-img">
-      <img src="Logos/Clarksons_flag_borderless_white_rgb.png" alt="Clarksons" class="logo-img">
-      <span class="logo-placeholder">US Olympic</span>
-      <img src="Logos/England Cricket.png" alt="England Cricket" class="logo-img">
-      <img src="Logos/Guidepost-GGE-Logo.png" alt="Guidepost Global Education" class="logo-img">
-      <img src="Logos/new-logos/nba-logo.png" alt="NBA" class="logo-img">
+      <div class="logo-set">
+        <img src="Logos/nhl-logo-black-and-white-logos-transparent-hd.png.jpeg" alt="NHL" class="logo-img">
+        <span class="logo-placeholder">The Executive Centre</span>
+        <img src="Logos/Google- BIG.png" alt="Google" class="logo-img">
+        <img src="Logos/new-logos/chelsea-logo.png" alt="Chelsea FC" class="logo-img">
+        <img src="Logos/Clarksons_flag_borderless_white_rgb.png" alt="Clarksons" class="logo-img">
+        <span class="logo-placeholder">US Olympic</span>
+        <img src="Logos/England Cricket.png" alt="England Cricket" class="logo-img">
+        <img src="Logos/Guidepost-GGE-Logo.png" alt="Guidepost Global Education" class="logo-img">
+        <img src="Logos/new-logos/nba-logo.png" alt="NBA" class="logo-img">
+      </div>
+      <!-- Set 3 (third copy for ultrawide coverage) -->
+      <div class="logo-set">
+        <img src="Logos/nhl-logo-black-and-white-logos-transparent-hd.png.jpeg" alt="NHL" class="logo-img">
+        <span class="logo-placeholder">The Executive Centre</span>
+        <img src="Logos/Google- BIG.png" alt="Google" class="logo-img">
+        <img src="Logos/new-logos/chelsea-logo.png" alt="Chelsea FC" class="logo-img">
+        <img src="Logos/Clarksons_flag_borderless_white_rgb.png" alt="Clarksons" class="logo-img">
+        <span class="logo-placeholder">US Olympic</span>
+        <img src="Logos/England Cricket.png" alt="England Cricket" class="logo-img">
+        <img src="Logos/Guidepost-GGE-Logo.png" alt="Guidepost Global Education" class="logo-img">
+        <img src="Logos/new-logos/nba-logo.png" alt="NBA" class="logo-img">
+      </div>
     </div>
   </div>
 </section>
