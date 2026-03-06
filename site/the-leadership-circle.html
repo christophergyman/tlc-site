@@ -662,32 +662,140 @@ nav.scrolled .nav-links a { color: var(--grey-600); }
   font-family: 'DM Serif Display', serif;
   font-size: clamp(2.2rem, 4.5vw, 3.4rem);
   font-weight: 400; margin-bottom: 0.75rem; letter-spacing: -0.02em;
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
 }
 .cta h2 em { font-style: italic; color: var(--teal); }
 .cta p {
   color: var(--grey-400); font-size: 0.95rem;
   margin-bottom: 2.5rem; font-weight: 300;
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.7s ease 0.12s, transform 0.7s ease 0.12s;
 }
-.cta-form {
-  display: flex; gap: 0;
-  max-width: 460px; margin: 0 auto;
+.cta.visible h2,
+.cta.visible p { opacity: 1; transform: translateY(0); }
+
+/* Pill wrapper — animated glow border via pseudo-element */
+@keyframes borderSpin {
+  to { --border-angle: 360deg; }
 }
-.cta-form input {
-  flex: 1; padding: 0.85rem 1.25rem;
-  background: var(--white); border: 1.5px solid var(--grey-100);
-  color: var(--ink); font-family: 'DM Sans', sans-serif;
-  font-size: 0.88rem; outline: none; transition: border-color 0.25s;
+@property --border-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
 }
-.cta-form input::placeholder { color: var(--grey-200); }
-.cta-form input:focus { border-color: var(--teal); }
-.cta-form button {
-  padding: 0.85rem 1.75rem; background: var(--teal);
-  color: var(--pure-white); border: 1.5px solid var(--teal);
-  font-family: 'DM Sans', sans-serif; font-size: 0.82rem;
-  font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
-  cursor: pointer; transition: background 0.25s; white-space: nowrap;
+.cta-pill {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 460px;
+  width: 100%;
+  height: 3.5rem;
+  border-radius: 100px;
+  background: conic-gradient(from var(--border-angle), var(--teal), var(--teal-light), var(--teal), var(--teal-dark), var(--teal));
+  padding: 2px;
+  animation: borderSpin 3.5s linear infinite;
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.7s ease 0.24s, transform 0.7s ease 0.24s, box-shadow 0.4s ease, padding 0.5s cubic-bezier(0.22,1,0.36,1);
+  box-shadow: 0 0 16px -4px rgba(26,138,125,0.25);
 }
-.cta-form button:hover { background: var(--teal-dark); border-color: var(--teal-dark); }
+.cta.visible .cta-pill { opacity: 1; transform: translateY(0); }
+.cta-pill:hover {
+  box-shadow: 0 0 28px -4px rgba(26,138,125,0.4);
+}
+.cta-pill:focus-within {
+  box-shadow: 0 0 32px -2px rgba(26,138,125,0.5);
+}
+
+/* Inner solid background */
+.cta-pill__inner {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 100px;
+  background: var(--pure-white);
+  padding: 0 0.35rem 0 1.5rem;
+  gap: 0.5rem;
+  transition: background 0.5s ease, padding 0.5s ease;
+}
+
+.cta-pill__input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.92rem;
+  min-width: 0;
+  caret-color: var(--teal);
+}
+.cta-pill__input::placeholder { color: var(--grey-200); }
+
+.cta-pill__submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  border: none;
+  background: var(--teal);
+  color: var(--pure-white);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.cta-pill__submit:hover {
+  background: var(--teal-dark);
+  transform: scale(1.08);
+}
+.cta-pill__submit svg {
+  width: 1rem; height: 1rem;
+  fill: none; stroke: currentColor;
+  stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
+
+/* Thank you overlay */
+.cta-pill__thanks {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--pure-white);
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(6px);
+  pointer-events: none;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  border-radius: 100px;
+}
+
+/* ── Thanked state ── */
+.cta-pill.is-thanked {
+  max-width: 200px;
+  background: var(--teal);
+  animation: none;
+  box-shadow: 0 0 24px -2px rgba(26,138,125,0.45);
+  transition: max-width 0.5s cubic-bezier(0.22,1,0.36,1), background 0.4s ease, box-shadow 0.4s ease, opacity 0.7s ease, transform 0.7s ease;
+}
+.cta-pill.is-thanked .cta-pill__inner {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+.cta-pill.is-thanked .cta-pill__thanks {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 /* ─── FOOTER ─── */
 footer {
@@ -724,8 +832,9 @@ footer {
   .stat-card:nth-child(3)::before { display: none; }
   .steps { grid-template-columns: repeat(2, 1fr); gap: 2.5rem; }
   .steps::before { display: none; }
-  .cta-form { flex-direction: column; gap: 0.75rem; }
-  .cta-form input { border-right: 1.5px solid var(--grey-100); }
+  .cta-pill { max-width: calc(100vw - 3rem); height: 3.2rem; }
+  .cta-pill__submit { width: 2.2rem; height: 2.2rem; }
+  .cta-pill__input { font-size: 0.85rem; }
   footer { flex-direction: column; gap: 0.75rem; text-align: center; }
   .belief { padding: 5rem var(--page-pad) 7rem; }
   .belief::before { height: 180px; }
@@ -1055,9 +1164,14 @@ footer {
 <section class="cta" id="contact">
   <h2>Let's <em>Talk</em></h2>
   <p>Ready to train your leaders like elite athletes? Drop us your email.</p>
-  <div class="cta-form">
-    <input type="email" placeholder="your@email.com">
-    <button type="button">Send</button>
+  <div class="cta-pill" id="ctaPill">
+    <div class="cta-pill__inner">
+      <input type="email" class="cta-pill__input" placeholder="your@email.com" autocomplete="email">
+      <button type="button" class="cta-pill__submit" aria-label="Send email">
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </button>
+    </div>
+    <span class="cta-pill__thanks">Thank you!</span>
   </div>
 </section>
 
@@ -1082,12 +1196,14 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.12 });
 
-document.querySelectorAll('.stats, .process, .testimonials, .cta').forEach(el => {
+document.querySelectorAll('.stats, .process, .testimonials').forEach(el => {
   el.style.opacity = '0';
   el.style.transform = 'translateY(32px)';
   el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
   observer.observe(el);
 });
+// CTA uses child-level stagger, so just observe for .visible class
+document.querySelectorAll('.cta').forEach(el => observer.observe(el));
 
 document.head.insertAdjacentHTML('beforeend', '<style>.visible{opacity:1!important;transform:translateY(0)!important;}</style>');
 
@@ -1257,6 +1373,39 @@ document.head.insertAdjacentHTML('beforeend', '<style>.visible{opacity:1!importa
   document.addEventListener('click', e => {
     if (state === 'input' && !cta.contains(e.target)) {
       collapse();
+    }
+  });
+})();
+
+// ─── CTA Pill Morph ───
+(function() {
+  const pill = document.getElementById('ctaPill');
+  if (!pill) return;
+  const input = pill.querySelector('.cta-pill__input');
+  const submit = pill.querySelector('.cta-pill__submit');
+
+  function submitEmail() {
+    const email = input.value.trim();
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      input.focus();
+      return;
+    }
+    pill.classList.add('is-thanked');
+    input.value = '';
+    setTimeout(() => {
+      pill.classList.remove('is-thanked');
+    }, 2200);
+  }
+
+  submit.addEventListener('click', e => {
+    e.preventDefault();
+    submitEmail();
+  });
+
+  input.addEventListener('keydown', e => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      submitEmail();
     }
   });
 })();
