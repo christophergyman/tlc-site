@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Leadership Circle</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Ccircle cx='30' cy='30' r='27' fill='none' stroke='%231a8a7d' stroke-width='2.5'/%3E%3Ccircle cx='30' cy='30' r='18' fill='none' stroke='%231a8a7d' stroke-width='2'/%3E%3Ccircle cx='30' cy='30' r='6' fill='%231a8a7d'/%3E%3C/svg%3E">
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -58,6 +59,11 @@ nav.scrolled {
   text-decoration: none; letter-spacing: -0.01em;
   transition: color 0.3s;
 }
+.nav-wordmark svg { width: 28px; height: 28px; margin-right: 0.5rem; vertical-align: middle; }
+.nav-wordmark svg circle { stroke: var(--pure-white); fill: none; transition: stroke 0.3s, fill 0.3s; }
+.nav-wordmark svg circle:nth-child(3) { fill: var(--pure-white); stroke: none; }
+nav.scrolled .nav-wordmark svg circle { stroke: var(--teal); }
+nav.scrolled .nav-wordmark svg circle:nth-child(3) { fill: var(--teal); stroke: none; }
 .nav-wordmark span { color: var(--teal-light); transition: color 0.3s; }
 nav.scrolled .nav-wordmark { color: var(--ink); }
 nav.scrolled .nav-wordmark span { color: var(--teal); }
@@ -881,7 +887,7 @@ footer {
 
 <!-- NAV -->
 <nav id="navbar">
-  <a href="#" class="nav-wordmark">The Leadership <span>Circle</span></a>
+  <a href="#" class="nav-wordmark"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><circle cx="30" cy="30" r="27" stroke-width="2.5"/><circle cx="30" cy="30" r="18" stroke-width="2"/><circle cx="30" cy="30" r="6"/></svg>The Leadership <span>Circle</span></a>
   <div class="nav-links">
     <a href="#">Articles</a>
     <a href="#services">Services</a>
