@@ -864,7 +864,7 @@ footer {
 /* ─── RESPONSIVE ─── */
 @media (max-width: 768px) {
   :root { --page-pad: 1.5rem; }
-  .nav-links a:not(.btn-primary) { display: none; }
+  .nav-links { display: none; }
   .hero::before { background: linear-gradient(to right, rgba(20, 28, 27, 0.82) 0%, rgba(20, 28, 27, 0.6) 70%, rgba(20, 28, 27, 0.35) 100%); }
   .hero { padding: 8rem var(--page-pad) 4rem; }
   .services-inner { grid-template-columns: 1fr; gap: 2.5rem; }
@@ -891,9 +891,11 @@ footer {
 <nav id="navbar">
   <a href="#" class="nav-wordmark"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><circle cx="30" cy="30" r="27" stroke-width="2.5"/><circle cx="30" cy="30" r="18" stroke-width="2"/><circle cx="30" cy="30" r="6"/></svg>The Leadership <span>Circle</span></a>
   <div class="nav-links">
-    <a href="#">Articles</a>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact Us</a>
+    <a href="#">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Training</a>
+    <a href="#offsites">Offsites</a>
+    <a href="#contact">Get in Touch</a>
   </div>
 </nav>
 
@@ -1477,6 +1479,13 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     e.preventDefault();
     const href = a.getAttribute('href');
     if (href === '#') { window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
+    if (href === '#offsites') {
+      const svc = document.querySelector('.services');
+      const svcTop = svc.getBoundingClientRect().top + window.scrollY;
+      const scrollable = svc.offsetHeight - window.innerHeight;
+      window.scrollTo({ top: svcTop + scrollable * (2 / 3) + 1, behavior: 'smooth' });
+      return;
+    }
     const target = document.querySelector(href);
     if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
