@@ -873,6 +873,9 @@ footer {
   padding: 2.5rem 2rem;
   border-top: 1px solid rgba(255,255,255,0.08);
   transition: background 0.35s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
 }
 .insight-card:not(:nth-child(3n+1)) {
   border-left: 1px solid rgba(255,255,255,0.08);
@@ -911,6 +914,63 @@ footer {
 .insight-card:hover .insight-card__cta { gap: 0.65rem; }
 .insight-card:hover .insight-card__cta svg { transform: translateX(3px); }
 
+/* ─ Insight card hover images ─ */
+.insight-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.6s ease;
+  z-index: -1;
+}
+.insight-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(20, 28, 27, 0.5) 0%,
+    rgba(20, 28, 27, 0.88) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: -1;
+}
+.insight-card:hover::before {
+  opacity: 1;
+  transform: scale(1.05);
+}
+.insight-card:hover::after {
+  opacity: 1;
+}
+
+/* Per-card images */
+.insight-card:nth-child(1)::before {
+  background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80');
+}
+.insight-card:nth-child(2)::before {
+  background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80');
+}
+.insight-card:nth-child(3)::before {
+  background-image: url('https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=600&q=80');
+}
+
+/* Elevate text above overlays */
+.insight-card__category,
+.insight-card__title,
+.insight-card__desc,
+.insight-card__cta {
+  position: relative;
+  z-index: 1;
+}
+
+/* Boost description contrast on hover */
+.insight-card:hover .insight-card__desc {
+  color: rgba(255, 255, 255, 0.7);
+}
+
 /* ─── LARGE SCREENS ─── */
 @media (min-width: 1440px) {
   .hero-content { max-width: 940px; }
@@ -937,6 +997,8 @@ footer {
   .insights-grid { grid-template-columns: 1fr; }
   .insight-card:not(:nth-child(3n+1)) { border-left: none; }
   .insight-card { padding: 2rem 0; }
+  .insight-card::before { opacity: 0.15; }
+  .insight-card::after { opacity: 0.15; }
   .cta-pill { max-width: calc(100vw - 3rem); height: 3.2rem; }
   .cta-pill__submit { width: 2.2rem; height: 2.2rem; }
   .cta-pill__input { font-size: 0.85rem; }
