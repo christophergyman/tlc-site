@@ -1967,6 +1967,13 @@ document.head.insertAdjacentHTML('beforeend', '<style>.visible{opacity:1!importa
       input.focus();
       return;
     }
+    const a = document.createElement('a');
+    a.href = 'mailto:hello@theleadershipcircle.com';
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
     state = 'thanked';
     cta.classList.remove('is-expanded');
     cta.classList.add('is-thanked');
@@ -2024,6 +2031,13 @@ document.head.insertAdjacentHTML('beforeend', '<style>.visible{opacity:1!importa
       input.focus();
       return;
     }
+    const a = document.createElement('a');
+    a.href = 'mailto:hello@theleadershipcircle.com';
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
     pill.classList.add('is-thanked');
     input.value = '';
     setTimeout(() => {
