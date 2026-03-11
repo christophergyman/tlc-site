@@ -4,7 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Leadership Circle</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<meta name="description" content="The Leadership Circle partners with elite organisations to build high-performance cultures through leadership coaching, team development, and bespoke programmes.">
+<meta property="og:title" content="The Leadership Circle">
+<meta property="og:description" content="Building high-performance cultures through leadership coaching, team development, and bespoke programmes.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="Photos/updated-hero-pic.webp">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="Photos/updated-hero-pic.webp">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Ccircle cx='30' cy='30' r='27' fill='none' stroke='%231a8a7d' stroke-width='2.5'/%3E%3Ccircle cx='30' cy='30' r='18' fill='none' stroke='%231a8a7d' stroke-width='2'/%3E%3Ccircle cx='30' cy='30' r='6' fill='%231a8a7d'/%3E%3C/svg%3E">
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -327,6 +336,7 @@ nav.scrolled .nav-links a { color: var(--grey-600); }
   display: flex; align-items: center;
   animation: marquee 32s linear infinite;
   width: max-content;
+  will-change: transform;
 }
 .logo-set {
   display: flex; align-items: center;
@@ -622,6 +632,7 @@ nav.scrolled .nav-links a { color: var(--grey-600); }
   display: flex; gap: 1.5rem;
   animation: slideLeft 32s linear infinite;
   width: max-content; margin-bottom: 1.5rem;
+  will-change: transform;
 }
 .testi-track.reverse { animation: slideRight 36s linear infinite; }
 .testi-card {
@@ -702,6 +713,7 @@ nav.scrolled .nav-links a { color: var(--grey-600); }
   box-shadow: 0 0 16px -4px rgba(26,138,125,0.25);
 }
 .cta.visible .cta-pill { opacity: 1; transform: translateY(0); }
+.visible { opacity: 1 !important; transform: translateY(0) !important; }
 .cta-pill:hover {
   box-shadow: 0 0 28px -4px rgba(26,138,125,0.4);
 }
@@ -1480,7 +1492,7 @@ footer {
 
     <div class="services-slide active" data-index="0">
       <div class="services-image">
-        <img src="Photos/services-slide-1.webp" alt="On-site leadership programme workshop in action" loading="lazy">
+        <img src="Photos/services-slide-1.webp" alt="On-site leadership programme workshop in action" loading="lazy" width="2000" height="1125">
       </div>
       <div class="services-text">
         <p class="section-tag">How We Help</p>
@@ -1491,7 +1503,7 @@ footer {
 
     <div class="services-slide" data-index="1">
       <div class="services-image">
-        <img src="Photos/PHOTO-2025-11-19-15-50-09.jpg" alt="High-performance workshop session" loading="lazy">
+        <img src="Photos/PHOTO-2025-11-19-15-50-09.jpg" alt="High-performance workshop session" loading="lazy" width="1600" height="1200">
       </div>
       <div class="services-text">
         <p class="section-tag">How We Help</p>
@@ -1502,7 +1514,7 @@ footer {
 
     <div class="services-slide" data-index="2">
       <div class="services-image">
-        <img src="Photos/hkphoto.webp" alt="Offsite team experience" loading="lazy">
+        <img src="Photos/hkphoto.webp" alt="Offsite team experience" loading="lazy" width="481" height="472">
       </div>
       <div class="services-text">
         <p class="section-tag">How We Help</p>
@@ -1798,7 +1810,7 @@ document.querySelectorAll('.stats, .process, .testimonials, .insights').forEach(
 // CTA uses child-level stagger, so just observe for .visible class
 document.querySelectorAll('.cta').forEach(el => observer.observe(el));
 
-document.head.insertAdjacentHTML('beforeend', '<style>.visible{opacity:1!important;transform:translateY(0)!important;}</style>');
+// .visible class is defined in the main <style> block
 
 // Belief word-by-word reveal on scroll
 (function() {
@@ -2119,7 +2131,7 @@ document.addEventListener('keydown', function(e) {
   <div class="article-modal-backdrop"></div>
   <div class="article-modal">
     <button class="article-modal__close" aria-label="Close article">&times;</button>
-    <img class="article-modal__hero" src="Photos/coaching-article.jpg" alt="Coaching mind map">
+    <img class="article-modal__hero" src="Photos/coaching-article.jpg" alt="Coaching mind map" width="500" height="333">
     <div class="article-modal__body">
       <p class="article-modal__category">Leadership</p>
       <h1 class="article-modal__title">What Modern Managers Can Learn from Elite Sports Coaching</h1>
@@ -2274,7 +2286,7 @@ document.addEventListener('keydown', function(e) {
   <div class="article-modal-backdrop"></div>
   <div class="article-modal">
     <button class="article-modal__close" aria-label="Close article">&times;</button>
-    <img class="article-modal__hero" src="Photos/gb-rowing-mens-fou_2293538b.jpg" alt="Team resilience in sport">
+    <img class="article-modal__hero" src="Photos/gb-rowing-mens-fou_2293538b.jpg" alt="Team resilience in sport" width="620" height="388">
     <div class="article-modal__body">
       <p class="article-modal__category">Performance</p>
       <h1 class="article-modal__title">Winning Mindset: Why Resilient Teams Need Resilient Individuals</h1>
@@ -2403,7 +2415,7 @@ document.addEventListener('keydown', function(e) {
   <div class="article-modal-backdrop"></div>
   <div class="article-modal">
     <button class="article-modal__close" aria-label="Close article">&times;</button>
-    <img class="article-modal__hero" src="Photos/belonging-article.jpg" alt="Team belonging in sport">
+    <img class="article-modal__hero" src="Photos/belonging-article.jpg" alt="Team belonging in sport" width="1600" height="900">
     <div class="article-modal__body">
       <p class="article-modal__category">Culture</p>
       <h1 class="article-modal__title">Belonging As A Critical Performance Enabler in the Modern Company</h1>

@@ -1,1 +1,24 @@
+# OS
 .DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.*
+
+# Dependencies
+node_modules/
+
+# Docker
+docker-compose.override.yml
+
+# Raw/unoptimised image formats
+*.HEIC
+*.heic
+
+# Editor
+.vscode/
+.idea/
+
+# Conductor
+.context/
