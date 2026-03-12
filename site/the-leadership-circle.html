@@ -1361,8 +1361,9 @@ footer {
   <div class="nav-links">
     <a href="#">Home</a>
     <a href="#about">About</a>
-    <a href="#services">Training</a>
-    <a href="#offsites">Offsites</a>
+    <a href="#services">Services</a>
+    <a href="#results">Results</a>
+    <a href="#process">Process</a>
     <a href="#insights">Insights</a>
     <a href="#contact">Get in Touch</a>
   </div>
@@ -1381,8 +1382,9 @@ footer {
     <div class="mobile-nav-links">
       <a href="#">Home</a>
       <a href="#about">About</a>
-      <a href="#services">Training</a>
-      <a href="#offsites">Offsites</a>
+      <a href="#services">Services</a>
+      <a href="#results">Results</a>
+      <a href="#process">Process</a>
       <a href="#insights">Insights</a>
       <a href="#contact">Get in Touch</a>
     </div>
@@ -1739,6 +1741,7 @@ footer {
       <li><a href="#services">Services</a></li>
       <li><a href="#results">Results</a></li>
       <li><a href="#process">Process</a></li>
+      <li><a href="#insights">Insights</a></li>
       <li><a href="#contact">Contact Us</a></li>
     </ul>
   </div>
@@ -1746,9 +1749,7 @@ footer {
   <div class="footer-group">
     <h4>Connect</h4>
     <ul>
-      <li><a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a></li>
       <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-      <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a></li>
       <li><a href="https://theleadershipcircle.com" target="_blank" rel="noopener noreferrer">Website</a></li>
       <li><a href="mailto:hello@theleadershipcircle.com">Email</a></li>
     </ul>
@@ -2076,18 +2077,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     if (a.dataset.article) return; // handled by article modal
     const href = a.getAttribute('href');
     if (href === '#') { window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
-    if (href === '#offsites') {
-      if (window.matchMedia('(min-width: 769px)').matches) {
-        const svc = document.querySelector('.services');
-        const svcTop = svc.getBoundingClientRect().top + window.scrollY;
-        const scrollable = svc.offsetHeight - window.innerHeight;
-        window.scrollTo({ top: svcTop + scrollable * (2 / 3) + 1, behavior: 'smooth' });
-      } else {
-        const slide = document.querySelector('.services-slide[data-index="2"]');
-        if (slide) slide.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-      return;
-    }
     const target = document.querySelector(href);
     if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
