@@ -141,6 +141,11 @@ nav.scrolled .nav-links a.active { color: var(--teal); }
   from { opacity: 0; transform: translateY(24px); }
   to { opacity: 1; transform: translateY(0); }
 }
+@keyframes accentPop {
+  0% { opacity: 0.08; transform: translateY(4px); }
+  60% { opacity: 1; transform: translateY(-2px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
 
 /* ─── LOGO STRIP ─── */
 .logo-strip {
@@ -182,6 +187,100 @@ nav.scrolled .nav-links a.active { color: var(--teal); }
 @keyframes marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(calc(-100% / 3)); }
+}
+
+/* ─── ABOUT INTRO ─── */
+.about-intro {
+  padding: 8rem var(--page-pad) 10rem;
+  text-align: center;
+  position: relative;
+  background: #071e1c;
+}
+.about-intro::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(26,138,125,0.09) 0%, transparent 55%);
+  pointer-events: none;
+}
+.about-intro-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.about-intro .section-tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 1.75rem;
+}
+.about-intro-lead {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--pure-white);
+  letter-spacing: -0.01em;
+  margin-bottom: 4.5rem;
+}
+.intro-word {
+  display: inline-block;
+  opacity: 0.08;
+  transition: opacity 0.45s ease, transform 0.45s ease;
+  transform: translateY(4px);
+}
+.intro-word.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+.intro-word.accent {
+  color: #3bbfb0;
+}
+.intro-word.accent.revealed {
+  animation: accentPop 0.5s ease forwards;
+}
+.about-intro-narrative {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  text-align: left;
+}
+.about-intro-para {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.15rem;
+  line-height: 1.85;
+  font-weight: 300;
+  color: rgba(255,255,255,0.72);
+  padding-left: 1.75rem;
+  position: relative;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1);
+}
+.about-intro-para::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.25em;
+  bottom: 0.25em;
+  width: 3px;
+  background: var(--teal);
+  border-radius: 2px;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.6s cubic-bezier(0.22,1,0.36,1) 0.15s;
+}
+.about-intro-para.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.about-intro-para.visible::before {
+  transform: scaleY(1);
 }
 
 /* ─── FOOTER ─── */
@@ -313,6 +412,12 @@ footer {
   .logo-set { gap: 3rem; padding-right: 3rem; }
   .logo-img { height: 46px; }
 
+  /* ── About Intro ── */
+  .about-intro { padding: 4.5rem var(--page-pad) 5.5rem; }
+  .about-intro-lead { font-size: clamp(1.6rem, 5vw, 2.2rem); line-height: 1.5; margin-bottom: 3rem; }
+  .about-intro-narrative { gap: 2rem; }
+  .about-intro-para { font-size: 1rem; padding-left: 1.25rem; }
+
   /* ── Footer ── */
   footer { grid-template-columns: 1fr; text-align: center; gap: 2rem; padding: 2.5rem var(--page-pad) 2rem; }
   .footer-brand { align-items: center; }
@@ -410,6 +515,35 @@ footer {
   </div>
 </section>
 
+<!-- ABOUT INTRO -->
+<section class="about-intro">
+  <div class="about-intro-inner">
+    <p class="section-tag">Who We Are</p>
+    <p class="about-intro-lead" id="introLeadText">
+      <span class="intro-word">At</span>
+      <span class="intro-word">The</span>
+      <span class="intro-word">Leadership</span>
+      <span class="intro-word">Circle,</span>
+      <span class="intro-word">we</span>
+      <span class="intro-word accent">develop</span>
+      <span class="intro-word accent">leaders</span>
+      <span class="intro-word">and</span>
+      <span class="intro-word accent">teams</span>
+      <span class="intro-word">in</span>
+      <span class="intro-word">environments</span>
+      <span class="intro-word">where</span>
+      <span class="intro-word accent">performance</span>
+      <span class="intro-word accent">truly</span>
+      <span class="intro-word accent">matters.</span>
+    </p>
+    <div class="about-intro-narrative">
+      <p class="about-intro-para">Our approach is grounded in experience &mdash; from leading teams at World Cups and Commonwealth Games to leading organisations navigating complex strategy shifts and transformation.</p>
+      <p class="about-intro-para">We've partnered with head coaches across the NBA, Premier League, Olympic and international sport to help build winning cultures and develop leaders capable of performing under pressure.</p>
+      <p class="about-intro-para">Today, we bring those insights into the corporate world, helping leaders and teams build the mindset, judgement and behaviours that sustain high performance.</p>
+    </div>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-brand">
@@ -472,6 +606,50 @@ window.addEventListener('scroll', () => {
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape' && overlay.classList.contains('is-open')) close();
   });
+})();
+
+// ─── Intro lead word-by-word reveal ───
+(function() {
+  const section = document.querySelector('.about-intro');
+  const words = document.querySelectorAll('.intro-word');
+  if (!section || !words.length) return;
+  let revealed = false;
+
+  function checkReveal() {
+    if (revealed) return;
+    const rect = section.getBoundingClientRect();
+    if (rect.top < window.innerHeight * 0.7) {
+      revealed = true;
+      words.forEach(function(word, i) {
+        setTimeout(function() {
+          word.classList.add('revealed');
+        }, i * 80);
+      });
+    }
+  }
+
+  window.addEventListener('scroll', checkReveal, { passive: true });
+  checkReveal();
+})();
+
+// ─── Intro paragraphs staggered reveal ───
+(function() {
+  var paras = document.querySelectorAll('.about-intro-para');
+  if (!paras.length) return;
+
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var idx = Array.from(paras).indexOf(entry.target);
+        setTimeout(function() {
+          entry.target.classList.add('visible');
+        }, idx * 200);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  paras.forEach(function(p) { observer.observe(p); });
 })();
 </script>
 </body>
