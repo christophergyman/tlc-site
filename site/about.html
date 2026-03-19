@@ -105,6 +105,7 @@ nav.scrolled .nav-links a.active { color: var(--teal); }
   text-align: center;
   padding: 6rem var(--page-pad) 0;
   position: relative;
+  overflow-x: clip;
   background: url('Photos/about-hero.jpeg') center right / cover no-repeat var(--ink);
 }
 .about-hero::before {
@@ -624,6 +625,23 @@ footer {
 /* ─── MOBILE NAV (hidden on desktop) ─── */
 .nav-hamburger { display: none; }
 .mobile-nav-overlay { display: none; }
+
+/* ─── TABLET / SMALL MONITORS ─── */
+@media (max-width: 1024px) {
+  /* Logo strip */
+  .logo-img { height: 52px; }
+  .logo-set { gap: 4rem; padding-right: 4rem; }
+}
+
+@media (max-width: 900px) {
+  /* Why Book */
+  .why-book-grid { grid-template-columns: 1fr; }
+  .why-book-card { min-height: 300px; }
+
+  /* Footer */
+  footer { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .footer-brand { grid-column: 1 / -1; }
+}
 
 /* ─── RESPONSIVE ─── */
 @media (max-width: 768px) {
