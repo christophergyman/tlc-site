@@ -36,7 +36,7 @@
   --page-pad: clamp(3rem, 5vw, 8rem);
 }
 
-html { font-size: clamp(1rem, 0.85rem + 0.25vw, 1.375rem); scroll-behavior: smooth; }
+html { font-size: clamp(1rem, 0.85rem + 0.25vw, 1.375rem); scroll-behavior: smooth; overflow-x: hidden; }
 body {
   font-family: 'DM Sans', sans-serif;
   background: var(--white);
@@ -1162,6 +1162,62 @@ footer {
   .cta-form { max-width: 520px; }
 }
 
+/* ─── TABLET / SMALL MONITORS ─── */
+@media (max-width: 1024px) {
+  /* Services */
+  .services-slide { gap: 3rem; }
+  .services-text h3 { font-size: 2.25rem; }
+  .services-progress { right: 1.5rem; }
+
+  /* Stats */
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .stat-card:nth-child(3)::before { display: none; }
+
+  /* Process */
+  .steps { grid-template-columns: repeat(2, 1fr); gap: 2.5rem 0; }
+  .steps-progress { display: none; }
+
+  /* Insights */
+  .insights-grid { grid-template-columns: repeat(2, 1fr); }
+  .insight-card:not(:nth-child(3n+1)) { border-left: none; }
+  .insight-card:nth-child(even) { border-left: 1px solid rgba(255,255,255,0.08); }
+
+  /* Testimonials */
+  .testi-card { min-width: 20rem; max-width: 20rem; padding: 1.75rem; }
+
+  /* Logo strip */
+  .logo-img { height: 52px; }
+  .logo-set { gap: 4rem; padding-right: 4rem; }
+
+  /* Article modal */
+  .article-modal__hero { height: 280px; }
+}
+
+@media (max-width: 900px) {
+  /* Services: disable sticky, stack */
+  .services { height: auto !important; }
+  .services-sticky {
+    position: relative;
+    height: auto;
+    padding: 4rem var(--page-pad);
+    flex-direction: column;
+    gap: 3.5rem;
+  }
+  .services-slide {
+    position: relative; inset: auto;
+    grid-template-columns: 1fr;
+    gap: 1.5rem; padding: 0;
+    opacity: 1; transform: none; pointer-events: auto;
+  }
+  .services-slide .services-image { aspect-ratio: 16/9; }
+  .services-text h3 { font-size: 2rem; }
+  .services-progress { display: none; }
+
+  /* Footer */
+  footer { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .footer-brand { grid-column: 1 / -1; }
+}
+
 /* ─── RESPONSIVE ─── */
 @media (max-width: 768px) {
   :root { --page-pad: 1.5rem; }
@@ -1854,7 +1910,7 @@ document.querySelectorAll('.cta').forEach(el => observer.observe(el));
   }
 
   // Only enable scroll-lock on desktop; on mobile show all slides stacked
-  var mql = window.matchMedia('(min-width: 769px)');
+  var mql = window.matchMedia('(min-width: 901px)');
   function handleMql() {
     if (mql.matches) {
       window.addEventListener('scroll', onScroll, { passive: true });
