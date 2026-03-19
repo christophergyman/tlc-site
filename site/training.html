@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Training | The Leadership Circle</title>
+<meta name="description" content="Our High Performance Framework — a proven approach to building leaders and teams who deliver results when it matters most.">
+<meta property="og:title" content="Training | The Leadership Circle">
+<meta property="og:description" content="Our High Performance Framework — a proven approach to building leaders and teams who deliver results when it matters most.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Ccircle cx='30' cy='30' r='27' fill='none' stroke='%231a8a7d' stroke-width='2.5'/%3E%3Ccircle cx='30' cy='30' r='18' fill='none' stroke='%231a8a7d' stroke-width='2'/%3E%3Ccircle cx='30' cy='30' r='6' fill='%231a8a7d'/%3E%3C/svg%3E">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --teal: #1a8a7d;
+  --teal-dark: #14695f;
+  --teal-deep: #0d4f47;
+  --teal-light: #e6f5f3;
+  --teal-mist: #f0faf8;
+  --ink: #141c1b;
+  --ink-light: #2d3b39;
+  --grey-600: #4a5957;
+  --grey-400: #7c8e8b;
+  --grey-200: #b8c5c3;
+  --grey-100: #dce5e3;
+  --grey-50: #f2f5f4;
+  --white: #fafbfb;
+  --pure-white: #ffffff;
+  --page-pad: clamp(3rem, 5vw, 8rem);
+}
+
+html { font-size: clamp(1rem, 0.85rem + 0.25vw, 1.375rem); scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--white);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ─── NAV ─── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 0 var(--page-pad); height: 4.5rem;
+  display: flex; align-items: center; justify-content: space-between;
+  background: transparent;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  border-bottom: 1px solid transparent;
+  transition: background 0.3s, border-color 0.3s, color 0.3s, backdrop-filter 0.3s, -webkit-backdrop-filter 0.3s;
+}
+nav.scrolled {
+  background: rgba(250,251,251,0.55);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+  border-bottom-color: rgba(200, 200, 200, 0.15);
+}
+.nav-wordmark {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.15rem; color: var(--pure-white);
+  text-decoration: none; letter-spacing: -0.01em;
+  transition: color 0.3s;
+}
+.nav-wordmark svg { width: 28px; height: 28px; margin-right: 0.5rem; vertical-align: middle; }
+.nav-wordmark svg circle { stroke: var(--pure-white); fill: none; transition: stroke 0.3s, fill 0.3s; }
+.nav-wordmark svg circle:nth-child(2) { stroke: var(--teal); }
+.nav-wordmark svg circle:nth-child(3) { fill: var(--pure-white); stroke: none; }
+nav.scrolled .nav-wordmark svg circle { stroke: var(--teal); }
+nav.scrolled .nav-wordmark svg circle:nth-child(2) { stroke: var(--teal-dark); }
+nav.scrolled .nav-wordmark svg circle:nth-child(3) { fill: var(--teal); stroke: none; }
+.nav-wordmark span { color: var(--teal-light); transition: color 0.3s; }
+nav.scrolled .nav-wordmark { color: var(--ink); }
+nav.scrolled .nav-wordmark span { color: var(--teal); }
+.nav-links { display: flex; gap: 2rem; align-items: center; }
+.nav-links a {
+  font-size: 0.82rem; font-weight: 500; color: rgba(255,255,255,0.85);
+  text-decoration: none; letter-spacing: 0.04em; text-transform: uppercase;
+  transition: color 0.25s; position: relative;
+}
+nav.scrolled .nav-links a { color: var(--grey-600); }
+.nav-links a::after {
+  content: ''; position: absolute;
+  bottom: -4px; left: 0; width: 100%; height: 1.5px;
+  background: var(--teal);
+  transform: scaleX(0); transform-origin: right;
+  transition: transform 0.35s cubic-bezier(0.22,1,0.36,1);
+}
+.nav-links a:hover { color: var(--ink); }
+.nav-links a:hover::after {
+  transform: scaleX(1); transform-origin: left;
+}
+.nav-links a.active { color: var(--pure-white); }
+.nav-links a.active::after { transform: scaleX(1); transform-origin: left; }
+nav.scrolled .nav-links a.active { color: var(--teal); }
+
+/* ─── TRAINING HERO ─── */
+.training-hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  align-items: center;
+  padding: 8rem var(--page-pad) 6rem;
+  position: relative;
+  overflow: hidden;
+  background: var(--ink);
+  gap: 2rem;
+}
+.training-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 70% 50%, rgba(255,255,255,0.02) 0%, transparent 55%);
+  pointer-events: none;
+}
+/* Subtle radial glow behind wheel */
+.training-hero::after {
+  content: '';
+  position: absolute;
+  top: 50%; right: 10%;
+  width: 700px; height: 700px;
+  transform: translate(0, -50%);
+  background: radial-gradient(circle, rgba(255,255,255,0.015) 0%, transparent 70%);
+  pointer-events: none;
+}
+.training-hero-left {
+  position: relative; z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.training-hero-content {
+  opacity: 0; animation: riseIn 0.7s 0.25s forwards;
+}
+.section-tag {
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 1.25rem;
+}
+.training-hero h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 400; line-height: 1.2;
+  letter-spacing: -0.02em; color: var(--pure-white);
+  margin-bottom: 1rem;
+}
+.training-hero h1 em { font-style: italic; color: #3bbfb0; }
+.training-hero-subtext {
+  font-size: 0.85rem; line-height: 1.7;
+  color: rgba(255,255,255,0.55);
+  max-width: 340px;
+  font-weight: 300;
+  opacity: 0; animation: riseIn 0.7s 0.4s forwards;
+}
+.training-hero-right {
+  position: relative; z-index: 1;
+}
+
+@keyframes riseIn {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── FRAMEWORK WHEEL ─── */
+.framework-wheel {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  aspect-ratio: 1;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1);
+}
+.framework-wheel.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.framework-svg {
+  display: block;
+  width: 58%;
+  height: auto;
+  margin: 0 auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Ring arcs — initially hidden for draw-in animation */
+.ring-arc {
+  transition: stroke-dasharray 1.4s cubic-bezier(0.22,1,0.36,1);
+}
+.ring-arc.ring-inner {
+  stroke-dasharray: 0 879.65 !important;
+}
+.ring-arc.ring-middle {
+  stroke-dasharray: 0 1118.41 !important;
+}
+.ring-arc.ring-outer {
+  stroke-dasharray: 0 1382.30 !important;
+}
+
+/* Revealed state — draw in from inside out */
+.framework-wheel.visible .ring-arc.ring-inner {
+  stroke-dasharray: var(--da) !important;
+  transition-delay: 0.3s;
+}
+.framework-wheel.visible .ring-arc.ring-middle {
+  stroke-dasharray: var(--da) !important;
+  transition-delay: 0.6s;
+}
+.framework-wheel.visible .ring-arc.ring-outer {
+  stroke-dasharray: var(--da) !important;
+  transition-delay: 0.9s;
+}
+
+/* Sector hover interaction */
+.sector-group {
+  cursor: pointer;
+  transform-origin: 300px 300px;
+}
+.sector-group circle {
+  transition: stroke 0.5s cubic-bezier(0.22,1,0.36,1), opacity 0.5s cubic-bezier(0.22,1,0.36,1);
+}
+/* When a sector is "charged" — turn it teal */
+.sector-group.is-charged circle {
+  stroke: #1a8a7d !important;
+}
+.sector-group.is-charged .ring-inner { opacity: 0.3 !important; }
+.sector-group.is-charged .ring-middle { opacity: 0.5 !important; }
+.sector-group.is-charged .ring-outer { opacity: 1 !important; }
+/* The currently hovered sector gets a slight scale bump */
+.sector-group.is-active {
+  transform: scale(1.04);
+  transition: transform 0.4s cubic-bezier(0.22,1,0.36,1);
+}
+/* Dim uncharged sectors when there's activity */
+.framework-wheel.has-active .sector-group:not(.is-charged) circle {
+  opacity: 0.12 !important;
+}
+/* When fully charged, pulse glow on the whole wheel */
+.framework-wheel.is-complete .sector-group circle {
+  stroke: #1a8a7d !important;
+}
+.framework-wheel.is-complete .sector-group .ring-outer { opacity: 1 !important; }
+.framework-wheel.is-complete .sector-group .ring-middle { opacity: 0.55 !important; }
+.framework-wheel.is-complete .sector-group .ring-inner { opacity: 0.35 !important; }
+
+/* Center logo */
+.center-logo { opacity: 0; transition: opacity 0.6s ease 1.2s; }
+.framework-wheel.visible .center-logo { opacity: 1; }
+.center-logo circle { transition: stroke 0.5s ease, fill 0.5s ease, opacity 0.5s ease; }
+
+/* When fully charged — glow effect on the wheel */
+@keyframes completeGlow {
+  0% { filter: drop-shadow(0 0 0px rgba(26,138,125,0)); }
+  50% { filter: drop-shadow(0 0 20px rgba(26,138,125,0.3)); }
+  100% { filter: drop-shadow(0 0 8px rgba(26,138,125,0.12)); }
+}
+.framework-wheel.is-complete .framework-svg {
+  animation: completeGlow 0.8s ease forwards;
+}
+
+/* ─── LABELS (positioned around the wheel) ─── */
+.framework-label {
+  position: absolute;
+  z-index: 2;
+  cursor: pointer;
+  transition: opacity 0.4s cubic-bezier(0.22,1,0.36,1), transform 0.3s cubic-bezier(0.22,1,0.36,1);
+  opacity: 0;
+  transform: translateY(8px);
+  user-select: none;
+}
+.framework-wheel.visible .framework-label {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 1.2s;
+}
+.framework-wheel.has-active .framework-label:not(.is-charged) {
+  opacity: 0.3;
+  transition-delay: 0s;
+}
+.framework-wheel.has-active .framework-label.is-active,
+.framework-wheel.has-active .framework-label.is-charged {
+  opacity: 1;
+  transition-delay: 0s;
+}
+.framework-label__num {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 0.25rem;
+  transition: color 0.4s ease;
+}
+.framework-label.is-charged .framework-label__num {
+  color: #1a8a7d;
+}
+.framework-label__title {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.35;
+  letter-spacing: 0.02em;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+}
+.framework-label.is-active .framework-label__title {
+  color: var(--pure-white);
+}
+.framework-label.is-charged .framework-label__title {
+  color: var(--pure-white);
+}
+
+/* Label positions — desktop */
+.framework-label[data-sector="0"] { top: 14%; left: 76%; text-align: left; }
+.framework-label[data-sector="1"] { top: 62%; left: 88%; text-align: left; }
+.framework-label[data-sector="2"] { top: 90%; left: 50%; text-align: center; transform: translateX(-50%) translateY(8px); }
+.framework-wheel.visible .framework-label[data-sector="2"] { transform: translateX(-50%) translateY(0); }
+.framework-label[data-sector="3"] { top: 62%; right: 88%; text-align: right; }
+.framework-label[data-sector="4"] { top: 14%; right: 76%; text-align: right; }
+
+/* ─── DESCRIPTION AREA ─── */
+.framework-desc {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 380px;
+  margin-top: 2.5rem;
+  text-align: left;
+  min-height: 5rem;
+}
+.framework-desc__text {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.85;
+  font-weight: 300;
+  color: rgba(255,255,255,0.7);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  opacity: 0;
+  transform: translateY(6px);
+  pointer-events: none;
+}
+.framework-desc__text.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.framework-desc__text.is-default {
+  color: rgba(255,255,255,0.3);
+  font-size: 0.8rem;
+  letter-spacing: 0.03em;
+  font-style: italic;
+}
+
+/* ─── MOBILE PILLAR LIST (hidden on desktop) ─── */
+.framework-list {
+  display: none;
+}
+
+/* ─── CTA ─── */
+.cta {
+  padding: 7rem var(--page-pad); text-align: center;
+  background: var(--pure-white); border-top: 1px solid var(--grey-100);
+}
+.cta h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  font-weight: 400; margin-bottom: 0.75rem; letter-spacing: -0.02em;
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.cta h2 em { font-style: italic; color: var(--teal); }
+.cta p {
+  color: var(--grey-400); font-size: 0.95rem;
+  margin-bottom: 2.5rem; font-weight: 300;
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.7s ease 0.12s, transform 0.7s ease 0.12s;
+}
+.cta.visible h2,
+.cta.visible p { opacity: 1; transform: translateY(0); }
+
+@keyframes borderSpin {
+  to { --border-angle: 360deg; }
+}
+@property --border-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+.cta-pill {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 460px;
+  width: 100%;
+  height: 3.5rem;
+  border-radius: 100px;
+  background: conic-gradient(from var(--border-angle), var(--teal), var(--teal-light), var(--teal), var(--teal-dark), var(--teal));
+  padding: 2px;
+  animation: borderSpin 3.5s linear infinite;
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.7s ease 0.24s, transform 0.7s ease 0.24s, box-shadow 0.4s ease, padding 0.5s cubic-bezier(0.22,1,0.36,1);
+  box-shadow: 0 0 16px -4px rgba(26,138,125,0.25);
+}
+.cta.visible .cta-pill { opacity: 1; transform: translateY(0); }
+.cta-pill:hover { box-shadow: 0 0 28px -4px rgba(26,138,125,0.4); }
+.cta-pill:focus-within { box-shadow: 0 0 32px -2px rgba(26,138,125,0.5); }
+.cta-pill__inner {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 100px;
+  background: var(--pure-white);
+  padding: 0 0.35rem 0 1.5rem;
+  gap: 0.5rem;
+  transition: background 0.5s ease, padding 0.5s ease;
+}
+.cta-pill__input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.92rem;
+  min-width: 0;
+  caret-color: var(--teal);
+}
+.cta-pill__input::placeholder { color: var(--grey-200); }
+.cta-pill__submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  border: none;
+  background: var(--teal);
+  color: var(--pure-white);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.cta-pill__submit:hover { background: var(--teal-dark); transform: scale(1.08); }
+.cta-pill__submit svg {
+  width: 1rem; height: 1rem;
+  fill: none; stroke: currentColor;
+  stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
+.cta-pill__thanks {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--pure-white);
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(6px);
+  pointer-events: none;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  border-radius: 100px;
+}
+.cta-pill.is-thanked {
+  max-width: 200px;
+  background: var(--teal);
+  animation: none;
+  box-shadow: 0 0 24px -2px rgba(26,138,125,0.45);
+  transition: max-width 0.5s cubic-bezier(0.22,1,0.36,1), background 0.4s ease, box-shadow 0.4s ease, opacity 0.7s ease, transform 0.7s ease;
+}
+.cta-pill.is-thanked .cta-pill__inner { opacity: 0; pointer-events: none; transition: opacity 0.25s ease; }
+.cta-pill.is-thanked .cta-pill__thanks { opacity: 1; transform: translateY(0); }
+
+/* ─── FOOTER ─── */
+footer {
+  padding: 3.5rem var(--page-pad) 2.5rem;
+  background: var(--white);
+  border-top: 1px solid var(--grey-100);
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 2rem;
+}
+.footer-brand { display: flex; flex-direction: column; gap: 0.75rem; }
+.footer-mark {
+  font-family: 'DM Serif Display', serif;
+  font-size: 0.95rem; color: var(--ink);
+}
+.footer-mark span { color: var(--teal); }
+.footer-copy { font-size: 0.75rem; color: var(--grey-400); font-weight: 300; }
+.footer-group h4 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--grey-400);
+  margin: 0 0 1rem;
+}
+.footer-group ul {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-direction: column; gap: 0.55rem;
+}
+.footer-group ul a {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  color: var(--grey-600);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.footer-group ul a:hover { color: var(--teal); }
+
+/* ─── MOBILE NAV (hidden on desktop) ─── */
+.nav-hamburger { display: none; }
+.mobile-nav-overlay { display: none; }
+
+/* ─── TABLET ─── */
+@media (max-width: 1024px) {
+  .training-hero { grid-template-columns: 2fr 3fr; gap: 1.5rem; }
+  .framework-wheel { max-width: 560px; }
+  .framework-label__title { font-size: 0.72rem; }
+}
+
+@media (max-width: 900px) {
+  .training-hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 8rem var(--page-pad) 4rem;
+  }
+  .training-hero h1 { font-size: clamp(1.8rem, 5vw, 2.4rem); }
+  .training-hero-left { align-items: center; }
+  .training-hero-subtext { margin: 0 auto; }
+  .framework-desc { text-align: center; margin: 2rem auto 0; }
+  .framework-wheel { max-width: 520px; }
+  footer { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .footer-brand { grid-column: 1 / -1; }
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 768px) {
+  :root { --page-pad: 1.5rem; }
+
+  /* Nav */
+  .nav-links { display: none; }
+  .nav-hamburger {
+    display: flex; flex-direction: column; justify-content: center;
+    gap: 5px; width: 44px; height: 44px;
+    background: none; border: none; cursor: pointer; padding: 10px;
+    z-index: 101;
+  }
+  .nav-hamburger span {
+    display: block; width: 22px; height: 2px;
+    background: var(--pure-white); border-radius: 2px;
+    transition: background 0.3s;
+  }
+  nav.scrolled .nav-hamburger span { background: var(--ink); }
+
+  /* Mobile Nav Overlay */
+  .mobile-nav-overlay {
+    display: block; position: fixed; inset: 0; z-index: 200;
+    visibility: hidden; opacity: 0;
+    transition: visibility 0.35s, opacity 0.35s;
+  }
+  .mobile-nav-overlay.is-open { visibility: visible; opacity: 1; }
+  .mobile-nav-overlay::before {
+    content: ''; position: absolute; inset: 0;
+    background: rgba(10,14,13,0.6);
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  }
+  .mobile-nav-drawer {
+    position: absolute; top: 0; right: 0;
+    width: min(320px, 85vw); height: 100%;
+    background: var(--ink);
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.22,1,0.36,1);
+    display: flex; flex-direction: column;
+    padding: 1.5rem;
+    z-index: 1;
+  }
+  .mobile-nav-overlay.is-open .mobile-nav-drawer { transform: translateX(0); }
+  .mobile-nav-header {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 2.5rem;
+  }
+  .mobile-nav-header .nav-wordmark { color: var(--pure-white); }
+  .mobile-nav-close {
+    width: 44px; height: 44px;
+    background: none; border: none;
+    color: rgba(255,255,255,0.7); font-size: 1.75rem;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+  }
+  .mobile-nav-links { display: flex; flex-direction: column; gap: 0; }
+  .mobile-nav-links a {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.1rem; font-weight: 400;
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    transition: color 0.2s;
+  }
+  .mobile-nav-links a:last-child { border-bottom: none; }
+  .mobile-nav-links a:active { color: var(--teal); }
+
+  /* Training hero */
+  .training-hero { padding: 7rem var(--page-pad) 4rem; min-height: auto; gap: 1rem; }
+  .training-hero h1 { font-size: clamp(2.2rem, 7vw, 3rem); }
+  .training-hero-subtext { font-size: 1rem; }
+
+  /* Framework wheel — smaller, labels hidden */
+  .framework-wheel { max-width: 320px; aspect-ratio: 1; }
+  .framework-svg { width: 90%; }
+  .framework-label { display: none; }
+  .framework-desc { display: none; }
+  .training-hero-right { grid-column: 1 / -1; display: flex; justify-content: center; }
+
+  /* Show mobile pillar list instead */
+  .framework-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 480px;
+    margin: 2.5rem auto 0;
+    position: relative;
+    z-index: 1;
+    padding: 0;
+    grid-column: 1 / -1;
+  }
+  .framework-list-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.3s ease, border-color 0.3s ease;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.5s cubic-bezier(0.22,1,0.36,1),
+                transform 0.5s cubic-bezier(0.22,1,0.36,1),
+                background 0.3s ease, border-color 0.3s ease;
+  }
+  .framework-wheel.visible ~ .framework-list .framework-list-item {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .framework-list-item:nth-child(1) { transition-delay: 0.15s; }
+  .framework-list-item:nth-child(2) { transition-delay: 0.25s; }
+  .framework-list-item:nth-child(3) { transition-delay: 0.35s; }
+  .framework-list-item:nth-child(4) { transition-delay: 0.45s; }
+  .framework-list-item:nth-child(5) { transition-delay: 0.55s; }
+  .framework-list-item:active { background: rgba(26,138,125,0.08); border-color: rgba(26,138,125,0.2); }
+  .framework-list-item__num {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--teal);
+    min-width: 1.5rem;
+    padding-top: 0.15rem;
+  }
+  .framework-list-item__title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.4;
+  }
+  .framework-list-item__desc {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.65;
+    margin-top: 0.4rem;
+    display: none;
+  }
+  .framework-list-item.is-expanded .framework-list-item__desc { display: block; }
+
+  /* CTA */
+  .cta { padding: 5rem var(--page-pad); }
+  .cta-pill { max-width: calc(100vw - 3rem); height: 3.5rem; }
+  .cta-pill__submit { width: 2.5rem; height: 2.5rem; min-width: 44px; min-height: 44px; }
+  .cta-pill__input { font-size: 0.85rem; }
+
+  /* Footer */
+  footer { grid-template-columns: 1fr; text-align: center; gap: 2rem; padding: 2.5rem var(--page-pad) 2rem; }
+  .footer-brand { align-items: center; }
+  .footer-group ul { gap: 0.75rem; }
+  .footer-group ul a { font-size: 0.9rem; padding: 0.25rem 0; display: inline-block; }
+}
+
+@media (max-width: 374px) {
+  :root { --page-pad: 1rem; }
+  .training-hero h1 { font-size: 2rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="the-leadership-circle.html" class="nav-wordmark"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><circle cx="30" cy="30" r="27" stroke-width="2.5"/><circle cx="30" cy="30" r="18" stroke-width="2"/><circle cx="30" cy="30" r="6"/></svg>The Leadership <span>Circle</span></a>
+  <div class="nav-links">
+    <a href="the-leadership-circle.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="#" class="active">Training</a>
+    <a href="the-leadership-circle.html#offsites">Offsites</a>
+    <a href="the-leadership-circle.html#contact">Get in Touch</a>
+  </div>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE NAV DRAWER -->
+<div class="mobile-nav-overlay" id="mobileNavOverlay">
+  <div class="mobile-nav-drawer">
+    <div class="mobile-nav-header">
+      <a href="the-leadership-circle.html" class="nav-wordmark"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><circle cx="30" cy="30" r="27" stroke-width="2.5"/><circle cx="30" cy="30" r="18" stroke-width="2"/><circle cx="30" cy="30" r="6"/></svg>The Leadership <span>Circle</span></a>
+      <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">&times;</button>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="the-leadership-circle.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="#">Training</a>
+      <a href="the-leadership-circle.html#offsites">Offsites</a>
+      <a href="the-leadership-circle.html#contact">Get in Touch</a>
+    </div>
+  </div>
+</div>
+
+<!-- TRAINING HERO + FRAMEWORK -->
+<section class="training-hero">
+  <div class="training-hero-left">
+    <div class="training-hero-content">
+      <p class="section-tag">Our Framework</p>
+      <h1>The High Performance <em>Framework</em></h1>
+      <p class="training-hero-subtext">A proven approach to building leaders and teams who deliver results when it matters most.</p>
+    </div>
+
+    <!-- Description area (sits under text on desktop) -->
+    <div class="framework-desc" id="frameworkDesc">
+      <p class="framework-desc__text is-default is-visible">Hover over each pillar to explore our approach</p>
+      <p class="framework-desc__text" data-sector="0">Trust is the foundation. We help leaders create psychological safety, build authentic connections, and establish the credibility that drives collaboration.</p>
+      <p class="framework-desc__text" data-sector="1">Continuous improvement separates good from great. We embed growth mindsets and habits that compound into sustained excellence.</p>
+      <p class="framework-desc__text" data-sector="2">High performance is a team sport. We develop the communication, alignment, and shared accountability that turn individuals into cohesive units.</p>
+      <p class="framework-desc__text" data-sector="3">When the stakes are highest, preparation meets mindset. We equip leaders to stay composed, make clear decisions, and inspire confidence in critical moments.</p>
+      <p class="framework-desc__text" data-sector="4">Strategy without execution is just theory. We help teams translate potential into measurable outcomes that matter.</p>
+    </div>
+  </div>
+
+  <div class="training-hero-right">
+    <!-- FRAMEWORK WHEEL -->
+    <div class="framework-wheel" id="frameworkWheel">
+
+    <svg class="framework-svg" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+      <g transform="rotate(-90 300 300)">
+
+        <!-- Sector 0 — Building Trust (teal accent) -->
+        <g class="sector-group" data-sector="0">
+          <circle cx="300" cy="300" r="140" fill="none" stroke="#1a8a7d" stroke-width="20" opacity="0.3"
+            class="ring-arc ring-inner" style="--da: 167.93 711.72"
+            stroke-dasharray="167.93 711.72" stroke-dashoffset="0"/>
+          <circle cx="300" cy="300" r="178" fill="none" stroke="#1a8a7d" stroke-width="28" opacity="0.5"
+            class="ring-arc ring-middle" style="--da: 213.68 904.73"
+            stroke-dasharray="213.68 904.73" stroke-dashoffset="0"/>
+          <circle cx="300" cy="300" r="220" fill="none" stroke="#1a8a7d" stroke-width="36"
+            class="ring-arc ring-outer" style="--da: 264.46 1117.84"
+            stroke-dasharray="264.46 1117.84" stroke-dashoffset="0"/>
+        </g>
+
+        <!-- Sector 1 — Growing Excellence (warm grey) -->
+        <g class="sector-group" data-sector="1">
+          <circle cx="300" cy="300" r="140" fill="none" stroke="#7c8e8b" stroke-width="20" opacity="0.25"
+            class="ring-arc ring-inner" style="--da: 167.93 711.72"
+            stroke-dasharray="167.93 711.72" stroke-dashoffset="-175.93"/>
+          <circle cx="300" cy="300" r="178" fill="none" stroke="#7c8e8b" stroke-width="28" opacity="0.4"
+            class="ring-arc ring-middle" style="--da: 213.68 904.73"
+            stroke-dasharray="213.68 904.73" stroke-dashoffset="-223.68"/>
+          <circle cx="300" cy="300" r="220" fill="none" stroke="#7c8e8b" stroke-width="36" opacity="0.7"
+            class="ring-arc ring-outer" style="--da: 264.46 1117.84"
+            stroke-dasharray="264.46 1117.84" stroke-dashoffset="-276.46"/>
+        </g>
+
+        <!-- Sector 2 — Working Together (light grey) -->
+        <g class="sector-group" data-sector="2">
+          <circle cx="300" cy="300" r="140" fill="none" stroke="#b8c5c3" stroke-width="20" opacity="0.2"
+            class="ring-arc ring-inner" style="--da: 167.93 711.72"
+            stroke-dasharray="167.93 711.72" stroke-dashoffset="-351.86"/>
+          <circle cx="300" cy="300" r="178" fill="none" stroke="#b8c5c3" stroke-width="28" opacity="0.35"
+            class="ring-arc ring-middle" style="--da: 213.68 904.73"
+            stroke-dasharray="213.68 904.73" stroke-dashoffset="-447.36"/>
+          <circle cx="300" cy="300" r="220" fill="none" stroke="#b8c5c3" stroke-width="36" opacity="0.55"
+            class="ring-arc ring-outer" style="--da: 264.46 1117.84"
+            stroke-dasharray="264.46 1117.84" stroke-dashoffset="-552.92"/>
+        </g>
+
+        <!-- Sector 3 — Performing Under Pressure (dark ink) -->
+        <g class="sector-group" data-sector="3">
+          <circle cx="300" cy="300" r="140" fill="none" stroke="#4a5957" stroke-width="20" opacity="0.3"
+            class="ring-arc ring-inner" style="--da: 167.93 711.72"
+            stroke-dasharray="167.93 711.72" stroke-dashoffset="-527.79"/>
+          <circle cx="300" cy="300" r="178" fill="none" stroke="#4a5957" stroke-width="28" opacity="0.5"
+            class="ring-arc ring-middle" style="--da: 213.68 904.73"
+            stroke-dasharray="213.68 904.73" stroke-dashoffset="-671.04"/>
+          <circle cx="300" cy="300" r="220" fill="none" stroke="#4a5957" stroke-width="36" opacity="0.8"
+            class="ring-arc ring-outer" style="--da: 264.46 1117.84"
+            stroke-dasharray="264.46 1117.84" stroke-dashoffset="-829.38"/>
+        </g>
+
+        <!-- Sector 4 — Delivering Results (muted teal) -->
+        <g class="sector-group" data-sector="4">
+          <circle cx="300" cy="300" r="140" fill="none" stroke="#2d3b39" stroke-width="20" opacity="0.35"
+            class="ring-arc ring-inner" style="--da: 167.93 711.72"
+            stroke-dasharray="167.93 711.72" stroke-dashoffset="-703.72"/>
+          <circle cx="300" cy="300" r="178" fill="none" stroke="#2d3b39" stroke-width="28" opacity="0.55"
+            class="ring-arc ring-middle" style="--da: 213.68 904.73"
+            stroke-dasharray="213.68 904.73" stroke-dashoffset="-894.73"/>
+          <circle cx="300" cy="300" r="220" fill="none" stroke="#2d3b39" stroke-width="36" opacity="0.8"
+            class="ring-arc ring-outer" style="--da: 264.46 1117.84"
+            stroke-dasharray="264.46 1117.84" stroke-dashoffset="-1105.84"/>
+        </g>
+
+      </g>
+
+      <!-- Center mask -->
+      <circle cx="300" cy="300" r="105" fill="#141c1b"/>
+
+      <!-- TLC Logo mark -->
+      <g class="center-logo">
+        <circle cx="300" cy="300" r="50" fill="none" stroke="#1a8a7d" stroke-width="2"/>
+        <circle cx="300" cy="300" r="35" fill="none" stroke="#1a8a7d" stroke-width="1.5"/>
+        <circle cx="300" cy="300" r="11" fill="#1a8a7d"/>
+      </g>
+    </svg>
+
+    <!-- Labels -->
+    <div class="framework-label" data-sector="0">
+      <span class="framework-label__num">01</span>
+      <span class="framework-label__title">Building Trust</span>
+    </div>
+    <div class="framework-label" data-sector="1">
+      <span class="framework-label__num">02</span>
+      <span class="framework-label__title">Growing Excellence</span>
+    </div>
+    <div class="framework-label" data-sector="2">
+      <span class="framework-label__num">03</span>
+      <span class="framework-label__title">Working Together</span>
+    </div>
+    <div class="framework-label" data-sector="3">
+      <span class="framework-label__num">04</span>
+      <span class="framework-label__title">Performing<br>Under Pressure</span>
+    </div>
+    <div class="framework-label" data-sector="4">
+      <span class="framework-label__num">05</span>
+      <span class="framework-label__title">Delivering Results</span>
+    </div>
+
+  </div>
+  </div>
+
+  <!-- Mobile pillar list -->
+  <div class="framework-list">
+    <div class="framework-list-item" data-sector="0">
+      <span class="framework-list-item__num">01</span>
+      <div>
+        <span class="framework-list-item__title">Building Trust</span>
+        <p class="framework-list-item__desc">Trust is the foundation. We help leaders create psychological safety, build authentic connections, and establish the credibility that drives collaboration.</p>
+      </div>
+    </div>
+    <div class="framework-list-item" data-sector="1">
+      <span class="framework-list-item__num">02</span>
+      <div>
+        <span class="framework-list-item__title">Growing Excellence</span>
+        <p class="framework-list-item__desc">Continuous improvement separates good from great. We embed growth mindsets and habits that compound into sustained excellence.</p>
+      </div>
+    </div>
+    <div class="framework-list-item" data-sector="2">
+      <span class="framework-list-item__num">03</span>
+      <div>
+        <span class="framework-list-item__title">Working Together</span>
+        <p class="framework-list-item__desc">High performance is a team sport. We develop the communication, alignment, and shared accountability that turn individuals into cohesive units.</p>
+      </div>
+    </div>
+    <div class="framework-list-item" data-sector="3">
+      <span class="framework-list-item__num">04</span>
+      <div>
+        <span class="framework-list-item__title">Performing Under Pressure</span>
+        <p class="framework-list-item__desc">When the stakes are highest, preparation meets mindset. We equip leaders to stay composed, make clear decisions, and inspire confidence in critical moments.</p>
+      </div>
+    </div>
+    <div class="framework-list-item" data-sector="4">
+      <span class="framework-list-item__num">05</span>
+      <div>
+        <span class="framework-list-item__title">Delivering Results</span>
+        <p class="framework-list-item__desc">Strategy without execution is just theory. We help teams translate potential into measurable outcomes that matter.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contact">
+  <h2>Let's <em>Talk</em></h2>
+  <p>Ready to turn high-performance theory into practice? Let's start the conversation.</p>
+  <div class="cta-pill" id="ctaPill">
+    <div class="cta-pill__inner">
+      <input type="email" class="cta-pill__input" placeholder="your@email.com" autocomplete="email">
+      <button type="button" class="cta-pill__submit" aria-label="Send email">
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </button>
+    </div>
+    <span class="cta-pill__thanks">Thank you!</span>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <div class="footer-mark">The Leadership <span>Circle</span></div>
+    <div class="footer-copy">&copy; 2026 The Leadership Circle. All rights reserved.</div>
+  </div>
+
+  <div class="footer-group">
+    <h4>Navigation</h4>
+    <ul>
+      <li><a href="about.html">About</a></li>
+      <li><a href="training.html">Training</a></li>
+      <li><a href="the-leadership-circle.html#offsites">Offsites</a></li>
+      <li><a href="the-leadership-circle.html#contact">Get in Touch</a></li>
+    </ul>
+  </div>
+
+  <div class="footer-group">
+    <h4>Connect</h4>
+    <ul>
+      <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+      <li><a href="https://theleadershipcircle.com" target="_blank" rel="noopener noreferrer">Website</a></li>
+      <li><a href="mailto:hello@theleadershipcircle.com">Email</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+// ─── Nav scroll ───
+const nav = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// ─── Mobile nav drawer ───
+(function() {
+  const hamburger = document.getElementById('navHamburger');
+  const overlay = document.getElementById('mobileNavOverlay');
+  const closeBtn = document.getElementById('mobileNavClose');
+  if (!hamburger || !overlay) return;
+
+  function open() {
+    overlay.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    hamburger.setAttribute('aria-expanded', 'true');
+  }
+  function close() {
+    overlay.classList.remove('is-open');
+    document.body.style.overflow = '';
+    hamburger.setAttribute('aria-expanded', 'false');
+  }
+
+  hamburger.addEventListener('click', open);
+  closeBtn.addEventListener('click', close);
+  overlay.addEventListener('click', function(e) {
+    if (!e.target.closest('.mobile-nav-drawer')) close();
+  });
+  overlay.querySelectorAll('a[href^="#"]').forEach(function(a) {
+    a.addEventListener('click', function() { close(); });
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && overlay.classList.contains('is-open')) close();
+  });
+})();
+
+// ─── Framework wheel reveal ───
+(function() {
+  var wheel = document.getElementById('frameworkWheel');
+  if (!wheel) return;
+
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  obs.observe(wheel);
+})();
+
+// ─── Sector hover/touch — "charging" interaction ───
+(function() {
+  var wheel = document.getElementById('frameworkWheel');
+  var desc = document.getElementById('frameworkDesc');
+  if (!wheel || !desc) return;
+
+  var sectorGroups = wheel.querySelectorAll('.sector-group');
+  var labels = wheel.querySelectorAll('.framework-label');
+  var descTexts = desc.querySelectorAll('.framework-desc__text');
+  var isTouch = 'ontouchstart' in window;
+  var chargedSectors = new Set();
+  var activeSector = null;
+  var resetTimer = null;
+
+  function charge(sectorIndex) {
+    activeSector = sectorIndex;
+    chargedSectors.add(sectorIndex);
+    wheel.classList.add('has-active');
+
+    // Clear any pending reset
+    if (resetTimer) { clearTimeout(resetTimer); resetTimer = null; }
+
+    // Update SVG sector classes
+    sectorGroups.forEach(function(g) {
+      var idx = parseInt(g.dataset.sector);
+      g.classList.toggle('is-active', idx === sectorIndex);
+      g.classList.toggle('is-charged', chargedSectors.has(idx));
+    });
+
+    // Update label classes
+    labels.forEach(function(l) {
+      var idx = parseInt(l.dataset.sector);
+      l.classList.toggle('is-active', idx === sectorIndex);
+      l.classList.toggle('is-charged', chargedSectors.has(idx));
+    });
+
+    // Show description for current sector
+    descTexts.forEach(function(t) {
+      t.classList.toggle('is-visible', t.dataset.sector === String(sectorIndex));
+    });
+
+    // Check if fully charged (all 5 sectors)
+    if (chargedSectors.size === 5) {
+      wheel.classList.add('is-complete');
+    }
+  }
+
+  function resetAll() {
+    // Delay reset so the wheel doesn't flash on quick re-entry
+    resetTimer = setTimeout(function() {
+      activeSector = null;
+      chargedSectors.clear();
+      wheel.classList.remove('has-active', 'is-complete');
+      sectorGroups.forEach(function(g) { g.classList.remove('is-active', 'is-charged'); });
+      labels.forEach(function(l) { l.classList.remove('is-active', 'is-charged'); });
+      descTexts.forEach(function(t) {
+        t.classList.toggle('is-visible', t.classList.contains('is-default'));
+      });
+    }, 600);
+  }
+
+  function cancelReset() {
+    if (resetTimer) { clearTimeout(resetTimer); resetTimer = null; }
+  }
+
+  if (isTouch) {
+    sectorGroups.forEach(function(g) {
+      g.addEventListener('click', function() { charge(parseInt(g.dataset.sector)); });
+    });
+    labels.forEach(function(l) {
+      l.addEventListener('click', function() { charge(parseInt(l.dataset.sector)); });
+    });
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.framework-wheel') && !e.target.closest('.framework-desc')) {
+        cancelReset();
+        resetAll();
+      }
+    });
+  } else {
+    sectorGroups.forEach(function(g) {
+      g.addEventListener('mouseenter', function() { cancelReset(); charge(parseInt(g.dataset.sector)); });
+    });
+    labels.forEach(function(l) {
+      l.addEventListener('mouseenter', function() { cancelReset(); charge(parseInt(l.dataset.sector)); });
+    });
+    wheel.addEventListener('mouseleave', resetAll);
+  }
+})();
+
+// ─── Mobile list expand/collapse ───
+(function() {
+  var items = document.querySelectorAll('.framework-list-item');
+  items.forEach(function(item) {
+    item.addEventListener('click', function() {
+      var wasExpanded = item.classList.contains('is-expanded');
+      items.forEach(function(i) { i.classList.remove('is-expanded'); });
+      if (!wasExpanded) item.classList.add('is-expanded');
+    });
+  });
+})();
+
+// ─── CTA scroll reveal ───
+(function() {
+  var ctaSection = document.querySelector('.cta');
+  if (!ctaSection) return;
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  obs.observe(ctaSection);
+})();
+
+// ─── CTA Pill Morph ───
+(function() {
+  const pill = document.getElementById('ctaPill');
+  if (!pill) return;
+  const input = pill.querySelector('.cta-pill__input');
+  const submit = pill.querySelector('.cta-pill__submit');
+
+  function submitEmail() {
+    const email = input.value.trim();
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      input.focus();
+      return;
+    }
+    const a = document.createElement('a');
+    a.href = 'mailto:hello@theleadershipcircle.com';
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    pill.classList.add('is-thanked');
+    input.value = '';
+    setTimeout(() => { pill.classList.remove('is-thanked'); }, 2200);
+  }
+
+  submit.addEventListener('click', e => { e.preventDefault(); submitEmail(); });
+  input.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); submitEmail(); } });
+})();
+</script>
+</body>
+</html>
