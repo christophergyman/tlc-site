@@ -602,6 +602,189 @@ nav.scrolled .nav-links a.active { color: var(--teal); }
   color: var(--grey-400);
 }
 
+/* ─── INSIGHTS CAROUSEL ─── */
+.insights {
+  background: var(--ink);
+  padding: 7rem var(--page-pad);
+  position: relative;
+  overflow: hidden;
+}
+.insights::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(26,138,125,0.04) 0%, transparent 60%);
+  pointer-events: none;
+}
+.insights__inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  position: relative;
+}
+.insights__header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+.insights__tag {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 1rem;
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.insights__title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--pure-white);
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.7s ease 0.1s, transform 0.7s ease 0.1s;
+}
+.insights__title em {
+  font-style: italic;
+  color: #3bbfb0;
+}
+.insights.visible .insights__tag,
+.insights.visible .insights__title {
+  opacity: 1; transform: translateY(0);
+}
+
+/* Carousel */
+.carousel {
+  position: relative;
+  max-width: 680px;
+  margin: 0 auto;
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.7s ease 0.2s, transform 0.7s ease 0.2s;
+}
+.insights.visible .carousel {
+  opacity: 1; transform: translateY(0);
+}
+.carousel__viewport {
+  overflow: hidden;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.carousel__track {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.carousel__slide {
+  min-width: 100%;
+  flex-shrink: 0;
+}
+.carousel__img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.carousel__body {
+  padding: 1.75rem 2rem 2rem;
+  background: rgba(255,255,255,0.03);
+}
+.carousel__card-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(1.15rem, 2vw, 1.4rem);
+  font-weight: 400;
+  color: var(--pure-white);
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.01em;
+}
+.carousel__card-desc {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 300;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 1.5rem;
+}
+.carousel__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--teal);
+  background: none;
+  border: 1px solid rgba(26,138,125,0.3);
+  border-radius: 8px;
+  padding: 0.65rem 1.25rem;
+  cursor: pointer;
+  transition: background 0.3s ease, border-color 0.3s ease;
+  text-decoration: none;
+}
+.carousel__btn:hover {
+  background: rgba(26,138,125,0.1);
+  border-color: var(--teal);
+}
+.carousel__btn svg {
+  width: 14px; height: 14px;
+}
+
+/* Carousel arrows */
+.carousel__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 8px;
+  color: rgba(255,255,255,0.7);
+  cursor: pointer;
+  transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+  z-index: 2;
+}
+.carousel__arrow:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.3);
+  color: var(--pure-white);
+}
+.carousel__arrow--prev { left: -72px; }
+.carousel__arrow--next { right: -72px; }
+.carousel__arrow svg {
+  width: 20px; height: 20px;
+}
+
+/* Carousel dots */
+.carousel__dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.75rem;
+}
+.carousel__dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+  padding: 0;
+}
+.carousel__dot.is-active {
+  background: var(--teal);
+  transform: scale(1.25);
+}
+.carousel__arrows-mobile {
+  display: none;
+}
+
 /* ─── CTA ─── */
 .cta {
   padding: 7rem var(--page-pad); text-align: center;
@@ -785,6 +968,9 @@ footer {
   .impact { padding: 6rem var(--page-pad); }
   .impact__grid { gap: 1.25rem; }
   .impact__card { padding: 1.4rem 1.3rem; }
+  .insights { padding: 6rem var(--page-pad); }
+  .carousel__arrow--prev { left: -56px; }
+  .carousel__arrow--next { right: -56px; }
 }
 
 @media (max-width: 900px) {
@@ -811,6 +997,10 @@ footer {
   .impact { padding: 5.5rem var(--page-pad); }
   .impact__grid { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
   .impact__header { margin-bottom: 3rem; }
+  .insights { padding: 5.5rem var(--page-pad); }
+  .carousel { max-width: 560px; }
+  .carousel__arrow--prev { left: -52px; }
+  .carousel__arrow--next { right: -52px; }
   footer { grid-template-columns: 1fr 1fr; gap: 2rem; }
   .footer-brand { grid-column: 1 / -1; }
 }
@@ -986,6 +1176,33 @@ footer {
   .impact__intro { font-size: 0.9rem; }
   .impact__bold { font-size: 1.15rem; }
 
+  /* Insights carousel */
+  .insights { padding: 4.5rem var(--page-pad); }
+  .carousel {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .carousel__viewport { order: 1; width: 100%; }
+  .carousel__arrow--prev,
+  .carousel__arrow--next { display: none; }
+  .carousel__arrows-mobile {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.25rem;
+    order: 3;
+  }
+  .carousel__arrows-mobile .carousel__arrow {
+    position: static;
+    transform: none;
+    width: 40px; height: 40px;
+    display: flex;
+  }
+  .carousel__dots { order: 2; width: 100%; }
+  .carousel__body { padding: 1.25rem 1.5rem 1.5rem; }
+
   /* CTA */
   .cta { padding: 5rem var(--page-pad); }
   .cta-pill { max-width: calc(100vw - 3rem); height: 3.5rem; }
@@ -1011,6 +1228,8 @@ footer {
   .impact__intro { font-size: 0.85rem; }
   .impact__bold { font-size: 1.05rem; }
   .impact__card { padding: 1.25rem 1rem; }
+  .carousel__body { padding: 1rem 1.15rem 1.25rem; }
+  .carousel__card-title { font-size: 1.1rem; }
 }
 </style>
 </head>
@@ -1293,6 +1512,82 @@ footer {
 </div>
 </section>
 
+<!-- INSIGHTS CAROUSEL -->
+<section class="insights" id="insightsCarousel">
+<div class="insights__inner">
+  <div class="insights__header">
+    <p class="insights__tag">Insights</p>
+    <h2 class="insights__title">The Athletic <em>Mindset</em></h2>
+  </div>
+
+  <div class="carousel">
+    <button class="carousel__arrow carousel__arrow--prev" aria-label="Previous slide">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <button class="carousel__arrow carousel__arrow--next" aria-label="Next slide">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+    </button>
+
+    <div class="carousel__viewport">
+      <div class="carousel__track">
+        <!-- Slide 1 -->
+        <div class="carousel__slide">
+          <img class="carousel__img" src="https://picsum.photos/seed/leadership/800/500" alt="Team leadership workshop" loading="lazy">
+          <div class="carousel__body">
+            <h3 class="carousel__card-title">Pressure Is a Privilege</h3>
+            <p class="carousel__card-desc">Elite athletes don't avoid pressure — they train for it. We teach teams to reframe high-stakes moments as opportunities, building the composure and clarity that separates good performers from great ones.</p>
+            <a href="#contact" class="carousel__btn">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div>
+        </div>
+        <!-- Slide 2 -->
+        <div class="carousel__slide">
+          <img class="carousel__img" src="https://picsum.photos/seed/teamwork/800/500" alt="Corporate team collaboration" loading="lazy">
+          <div class="carousel__body">
+            <h3 class="carousel__card-title">The Recovery Advantage</h3>
+            <p class="carousel__card-desc">Sustainable high performance isn't about relentless intensity. Drawing from sports science, we help organisations build recovery rhythms that prevent burnout and keep teams sharp when it matters most.</p>
+            <a href="#contact" class="carousel__btn">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div>
+        </div>
+        <!-- Slide 3 -->
+        <div class="carousel__slide">
+          <img class="carousel__img" src="https://picsum.photos/seed/strategy/800/500" alt="Strategic planning session" loading="lazy">
+          <div class="carousel__body">
+            <h3 class="carousel__card-title">Marginal Gains, Massive Results</h3>
+            <p class="carousel__card-desc">The philosophy that transformed British Cycling applies directly to business. We show leaders how small, compounding improvements across processes, habits, and communication create outsized performance gains.</p>
+            <a href="#contact" class="carousel__btn">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div>
+        </div>
+        <!-- Slide 4 -->
+        <div class="carousel__slide">
+          <img class="carousel__img" src="https://picsum.photos/seed/coaching/800/500" alt="Executive coaching session" loading="lazy">
+          <div class="carousel__body">
+            <h3 class="carousel__card-title">Building a Championship Culture</h3>
+            <p class="carousel__card-desc">Winning teams share a DNA — psychological safety, accountability, and shared purpose. We draw on the culture-building methods of elite sports franchises to help organisations create environments where people do their best work.</p>
+            <a href="#contact" class="carousel__btn">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="carousel__dots">
+      <button class="carousel__dot is-active" data-slide="0" aria-label="Go to slide 1"></button>
+      <button class="carousel__dot" data-slide="1" aria-label="Go to slide 2"></button>
+      <button class="carousel__dot" data-slide="2" aria-label="Go to slide 3"></button>
+      <button class="carousel__dot" data-slide="3" aria-label="Go to slide 4"></button>
+    </div>
+
+    <div class="carousel__arrows-mobile">
+      <button class="carousel__arrow carousel__arrow--prev-mobile" aria-label="Previous slide">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <button class="carousel__arrow carousel__arrow--next-mobile" aria-label="Next slide">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+</section>
+
 <!-- CTA -->
 <section class="cta" id="contact">
   <h2>Let's <em>Talk</em></h2>
@@ -1550,6 +1845,73 @@ window.addEventListener('scroll', () => {
     });
   }, { threshold: 0.1 });
   obs.observe(impact);
+})();
+
+// ─── Insights carousel scroll reveal ───
+(function() {
+  var section = document.getElementById('insightsCarousel');
+  if (!section) return;
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  obs.observe(section);
+})();
+
+// ─── Insights carousel navigation ───
+(function() {
+  var section = document.getElementById('insightsCarousel');
+  if (!section) return;
+
+  var track = section.querySelector('.carousel__track');
+  var slides = section.querySelectorAll('.carousel__slide');
+  var prevBtns = section.querySelectorAll('.carousel__arrow--prev, .carousel__arrow--prev-mobile');
+  var nextBtns = section.querySelectorAll('.carousel__arrow--next, .carousel__arrow--next-mobile');
+  var dots = section.querySelectorAll('.carousel__dot');
+  var current = 0;
+  var total = slides.length;
+
+  function goTo(index) {
+    if (index < 0) index = total - 1;
+    if (index >= total) index = 0;
+    current = index;
+    track.style.transform = 'translateX(-' + (current * 100) + '%)';
+    dots.forEach(function(dot, i) {
+      dot.classList.toggle('is-active', i === current);
+    });
+  }
+
+  prevBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() { goTo(current - 1); });
+  });
+  nextBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() { goTo(current + 1); });
+  });
+  dots.forEach(function(dot) {
+    dot.addEventListener('click', function() {
+      goTo(parseInt(dot.dataset.slide));
+    });
+  });
+
+  // Touch swipe support
+  var startX = 0;
+  var isDragging = false;
+  track.addEventListener('touchstart', function(e) {
+    startX = e.touches[0].clientX;
+    isDragging = true;
+  }, { passive: true });
+  track.addEventListener('touchend', function(e) {
+    if (!isDragging) return;
+    isDragging = false;
+    var diff = startX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) {
+      goTo(current + (diff > 0 ? 1 : -1));
+    }
+  }, { passive: true });
 })();
 
 // ─── CTA scroll reveal ───
