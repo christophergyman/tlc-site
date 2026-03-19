@@ -454,6 +454,167 @@ nav.scrolled .nav-links a.active { color: var(--teal); }
   color: rgba(255,255,255,0.75);
 }
 
+/* ─── DESIGNED FOR IMPACT ─── */
+.impact {
+  background: var(--grey-50);
+  padding: 7rem var(--page-pad);
+  position: relative;
+  overflow: hidden;
+}
+.impact__inner {
+  max-width: 860px;
+  margin: 0 auto;
+}
+.impact::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(26,138,125,0.04) 0%, transparent 50%);
+  pointer-events: none;
+}
+.impact__header {
+  max-width: 700px;
+  margin: 0 0 4rem;
+  position: relative;
+}
+.impact__title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 1.25rem;
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.impact__title em {
+  font-style: italic;
+  color: var(--teal);
+}
+.impact.visible .impact__title {
+  opacity: 1; transform: translateY(0);
+}
+.impact__intro {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--grey-400);
+  margin-bottom: 1.5rem;
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.7s ease 0.1s, transform 0.7s ease 0.1s;
+}
+.impact.visible .impact__intro {
+  opacity: 1; transform: translateY(0);
+}
+.impact__bold {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  font-weight: 400;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.7s ease 0.2s, transform 0.7s ease 0.2s;
+}
+.impact.visible .impact__bold {
+  opacity: 1; transform: translateY(0);
+}
+.impact__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  margin: 0 0 4rem;
+}
+.impact__card {
+  position: relative;
+  background: var(--pure-white);
+  border: 1px solid var(--grey-100);
+  border-radius: 16px;
+  padding: 1.5rem 1.4rem 1.75rem;
+  text-align: left;
+  opacity: 0;
+  transform: translateY(24px);
+  box-shadow: 0 1px 3px rgba(20,28,27,0.04);
+  display: flex;
+  flex-direction: column;
+  transition: opacity 0.6s cubic-bezier(0.22,1,0.36,1),
+              transform 0.6s cubic-bezier(0.22,1,0.36,1),
+              background 0.35s ease,
+              border-color 0.35s ease,
+              box-shadow 0.35s ease;
+}
+.impact.visible .impact__card {
+  opacity: 1; transform: translateY(0);
+}
+.impact.visible .impact__card[data-card="0"] { transition-delay: 0.15s; }
+.impact.visible .impact__card[data-card="1"] { transition-delay: 0.25s; }
+.impact.visible .impact__card[data-card="2"] { transition-delay: 0.35s; }
+.impact.visible .impact__card[data-card="3"] { transition-delay: 0.45s; }
+.impact__card::before {
+  content: '';
+  position: absolute;
+  top: -1px; left: 1.5rem; right: 1.5rem;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--teal), transparent);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  border-radius: 2px;
+}
+.impact__card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(26,138,125,0.3);
+  box-shadow: 0 12px 32px -8px rgba(26,138,125,0.15),
+              0 4px 12px rgba(20,28,27,0.06);
+}
+.impact__card:hover::before {
+  opacity: 1;
+}
+.impact__card-icon {
+  width: 36px;
+  height: 36px;
+  margin-bottom: 1rem;
+  color: var(--teal);
+  flex-shrink: 0;
+  transition: transform 0.35s cubic-bezier(0.22,1,0.36,1), color 0.35s ease;
+}
+.impact__card:hover .impact__card-icon {
+  transform: scale(1.1);
+  color: var(--teal-dark);
+}
+.impact__card-icon svg {
+  width: 100%;
+  height: 100%;
+}
+.impact__card-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 0.6rem;
+  letter-spacing: -0.01em;
+}
+.impact__card-desc {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--grey-400);
+}
+.impact__footer {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--grey-400);
+  max-width: 700px;
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.7s ease 0.5s, transform 0.7s ease 0.5s;
+}
+.impact.visible .impact__footer {
+  opacity: 1; transform: translateY(0);
+}
+
 /* ─── CTA ─── */
 .cta {
   padding: 7rem var(--page-pad); text-align: center;
@@ -634,6 +795,9 @@ footer {
   .training-intro { padding: 6rem var(--page-pad); }
   .training-intro h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); }
   .training-intro__sub { font-size: 1rem; }
+  .impact { padding: 6rem var(--page-pad); }
+  .impact__grid { gap: 1.25rem; }
+  .impact__card { padding: 1.4rem 1.3rem; }
 }
 
 @media (max-width: 900px) {
@@ -657,6 +821,9 @@ footer {
   .training-intro h2 { font-size: clamp(1.6rem, 4vw, 2.2rem); }
   .training-intro__sub { font-size: 0.95rem; max-width: 520px; margin-bottom: 3rem; }
   .training-intro__blurb { max-width: 520px; }
+  .impact { padding: 5.5rem var(--page-pad); }
+  .impact__grid { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+  .impact__header { margin-bottom: 3rem; }
   footer { grid-template-columns: 1fr 1fr; gap: 2rem; }
   .footer-brand { grid-column: 1 / -1; }
 }
@@ -825,6 +992,14 @@ footer {
   .training-intro__blurb { padding-left: 1.25rem; max-width: 100%; }
   .training-intro__blurb p { font-size: 0.85rem; line-height: 1.75; }
 
+  /* Designed for Impact */
+  .impact { padding: 4.5rem var(--page-pad); }
+  .impact__grid { grid-template-columns: 1fr; gap: 1rem; max-width: 480px; }
+  .impact__card { padding: 1.5rem 1.25rem; }
+  .impact__intro { font-size: 0.9rem; }
+  .impact__bold { font-size: 1.15rem; }
+  .impact__footer { font-size: 0.85rem; }
+
   /* CTA */
   .cta { padding: 5rem var(--page-pad); }
   .cta-pill { max-width: calc(100vw - 3rem); height: 3.5rem; }
@@ -846,6 +1021,10 @@ footer {
   .training-intro__sub { font-size: 0.85rem; }
   .training-intro__blurb { padding-left: 1rem; }
   .training-intro__blurb p { font-size: 0.82rem; }
+  .impact { padding: 3.5rem var(--page-pad); }
+  .impact__intro { font-size: 0.85rem; }
+  .impact__bold { font-size: 1.05rem; }
+  .impact__card { padding: 1.25rem 1rem; }
 }
 </style>
 </head>
@@ -1062,6 +1241,71 @@ footer {
     <p>The great teams and organisations we've worked with all share certain traits — what we call <strong>High Performance Anchors</strong>.</p>
     <p>Our sessions bring these anchors to life, translating the lessons of high-performing teams into simple, practical ideas that leaders and teams can apply immediately.</p>
   </div>
+</section>
+
+<!-- DESIGNED FOR IMPACT -->
+<section class="impact" id="impactSection">
+<div class="impact__inner">
+  <div class="impact__header">
+    <h2 class="impact__title">Designed For <em>Impact</em></h2>
+    <p class="impact__intro">We searched tirelessly through the endless mundanity and box-ticking of traditional corporate training &mdash; looking for something that would genuinely excite people, create real behavioural change, and deliver measurable performance outcomes.</p>
+    <p class="impact__bold">We couldn&rsquo;t find it &mdash; so we built our own.</p>
+  </div>
+
+  <div class="impact__grid">
+    <div class="impact__card" data-card="0">
+      <div class="impact__card-icon">
+        <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15 7h-4a2 2 0 0 0-2 2v4m0 10v4a2 2 0 0 0 2 2h4m10-20h4a2 2 0 0 1 2 2v4m0 10v4a2 2 0 0 1-2 2h-4"/>
+          <rect x="13" y="13" width="10" height="10" rx="2"/>
+        </svg>
+      </div>
+      <h3 class="impact__card-title">Custom Built</h3>
+      <p class="impact__card-desc">No two experiences are the same. We tailor everything; content, flow, tone, to your team&rsquo;s exact needs.</p>
+    </div>
+    <div class="impact__card" data-card="1">
+      <div class="impact__card-icon">
+        <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="18" cy="18" r="12"/>
+          <circle cx="18" cy="18" r="6"/>
+          <circle cx="18" cy="18" r="1.5" fill="currentColor" stroke="none"/>
+          <line x1="18" y1="2" x2="18" y2="6"/>
+          <line x1="18" y1="30" x2="18" y2="34"/>
+          <line x1="2" y1="18" x2="6" y2="18"/>
+          <line x1="30" y1="18" x2="34" y2="18"/>
+        </svg>
+      </div>
+      <h3 class="impact__card-title">Strategy-Led</h3>
+      <p class="impact__card-desc">Every session is designed with clear purpose &mdash; aligned to your business goals, people and culture.</p>
+    </div>
+    <div class="impact__card" data-card="2">
+      <div class="impact__card-icon">
+        <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 4C13.5 4 11 8 11 12c0 3 1 5 2 7h10c1-2 2-4 2-7 0-4-2.5-8-7-8z"/>
+          <line x1="14" y1="22" x2="22" y2="22"/>
+          <line x1="15" y1="26" x2="21" y2="26"/>
+          <path d="M15 26c0 2 1.5 4 3 4s3-2 3-4"/>
+          <path d="M18 4v-1M26 8l1-1M10 8l-1-1M28 14h1M7 14h1"/>
+        </svg>
+      </div>
+      <h3 class="impact__card-title">Science-Based</h3>
+      <p class="impact__card-desc">We use behavioral psychology and neuroscience to shape lasting outcomes, not just momentary motivation.</p>
+    </div>
+    <div class="impact__card" data-card="3">
+      <div class="impact__card-icon">
+        <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="4 28 12 18 18 22 26 10 32 6"/>
+          <polyline points="26 6 32 6 32 12"/>
+          <line x1="4" y1="32" x2="32" y2="32"/>
+        </svg>
+      </div>
+      <h3 class="impact__card-title">Performance Driven</h3>
+      <p class="impact__card-desc">Sessions provide immediate takeaways and create space for practice, experimentation, and confidence building.</p>
+    </div>
+  </div>
+
+  <p class="impact__footer">Lasting behavioural change rarely comes from passive learning. That&rsquo;s why our sessions are designed to energise, spark curiosity and create moments that stay with people long after the session ends.</p>
+</div>
 </section>
 
 <!-- CTA -->
@@ -1306,6 +1550,21 @@ window.addEventListener('scroll', () => {
     });
   }, { threshold: 0.15 });
   obs.observe(intro);
+})();
+
+// ─── Designed for Impact scroll reveal ───
+(function() {
+  var impact = document.getElementById('impactSection');
+  if (!impact) return;
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  obs.observe(impact);
 })();
 
 // ─── CTA scroll reveal ───
