@@ -122,7 +122,7 @@ nav.scrolled .nav-links a.active { color: var(--teal); }
   content: '';
   position: absolute;
   top: 50%; right: 10%;
-  width: 700px; height: 700px;
+  width: 800px; height: 800px;
   transform: translate(0, -50%);
   background: radial-gradient(circle, rgba(255,255,255,0.015) 0%, transparent 70%);
   pointer-events: none;
@@ -172,7 +172,7 @@ nav.scrolled .nav-links a.active { color: var(--teal); }
 .framework-wheel {
   position: relative;
   width: 100%;
-  max-width: 720px;
+  max-width: 820px;
   margin: 0 auto;
   aspect-ratio: 1;
   opacity: 0;
@@ -186,7 +186,7 @@ nav.scrolled .nav-links a.active { color: var(--teal); }
 
 .framework-svg {
   display: block;
-  width: 58%;
+  width: 68%;
   height: auto;
   margin: 0 auto;
   position: relative;
@@ -296,7 +296,7 @@ nav.scrolled .nav-links a.active { color: var(--teal); }
 .framework-label__num {
   display: block;
   font-family: 'DM Sans', sans-serif;
-  font-size: 0.6rem;
+  font-size: 0.65rem;
   font-weight: 600;
   letter-spacing: 0.15em;
   color: rgba(255,255,255,0.35);
@@ -309,7 +309,7 @@ nav.scrolled .nav-links a.active { color: var(--teal); }
 .framework-label__title {
   display: block;
   font-family: 'DM Sans', sans-serif;
-  font-size: 0.78rem;
+  font-size: 0.85rem;
   font-weight: 500;
   color: rgba(255,255,255,0.75);
   line-height: 1.35;
@@ -325,12 +325,33 @@ nav.scrolled .nav-links a.active { color: var(--teal); }
 }
 
 /* Label positions — desktop */
-.framework-label[data-sector="0"] { top: 14%; left: 76%; text-align: left; }
-.framework-label[data-sector="1"] { top: 62%; left: 88%; text-align: left; }
-.framework-label[data-sector="2"] { top: 90%; left: 50%; text-align: center; transform: translateX(-50%) translateY(8px); }
+.framework-label[data-sector="0"] { top: 16%; left: 70%; text-align: left; }
+.framework-label[data-sector="1"] { top: 60%; left: 80%; text-align: left; }
+.framework-label[data-sector="2"] { top: 86%; left: 50%; text-align: center; transform: translateX(-50%) translateY(8px); }
 .framework-wheel.visible .framework-label[data-sector="2"] { transform: translateX(-50%) translateY(0); }
-.framework-label[data-sector="3"] { top: 62%; right: 88%; text-align: right; }
-.framework-label[data-sector="4"] { top: 14%; right: 76%; text-align: right; }
+.framework-label[data-sector="3"] { top: 60%; right: 80%; text-align: right; }
+.framework-label[data-sector="4"] { top: 16%; right: 70%; text-align: right; }
+
+/* Label descriptions — always visible beneath headings */
+.framework-label__desc {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.55;
+  margin-top: 0.35rem;
+  max-width: 190px;
+  white-space: normal;
+}
+.framework-label[data-sector="3"] .framework-label__desc,
+.framework-label[data-sector="4"] .framework-label__desc {
+  margin-left: auto;
+}
+.framework-label[data-sector="2"] .framework-label__desc {
+  margin: 0.35rem auto 0;
+  text-align: center;
+}
 
 /* ─── DESCRIPTION AREA ─── */
 .framework-desc {
@@ -772,9 +793,9 @@ footer {
   .training-hero-subtext { font-size: 0.8rem; max-width: 280px; }
   .framework-desc { max-width: 300px; }
   .framework-desc__text { font-size: 0.92rem; }
-  .framework-wheel { max-width: 520px; }
-  .framework-label__title { font-size: 0.68rem; }
-  .framework-label__num { font-size: 0.55rem; }
+  .framework-wheel { max-width: 600px; }
+  .framework-label__title { font-size: 0.72rem; }
+  .framework-label__num { font-size: 0.58rem; }
   .framework-label[data-sector="0"] { left: 73%; }
   .framework-label[data-sector="1"] { left: 85%; }
   .framework-label[data-sector="3"] { right: 85%; }
@@ -797,8 +818,8 @@ footer {
   .training-hero-left { align-items: center; }
   .training-hero-subtext { max-width: 420px; margin: 0 auto; font-size: 0.85rem; }
   .framework-desc { text-align: center; margin: 2rem auto 0; max-width: 380px; }
-  .framework-wheel { max-width: 440px; }
-  .framework-label__title { font-size: 0.65rem; }
+  .framework-wheel { max-width: 520px; }
+  .framework-label__title { font-size: 0.7rem; }
   .framework-label__num { font-size: 0.5rem; }
   .framework-label[data-sector="0"] { left: 72%; }
   .framework-label[data-sector="1"] { left: 83%; }
@@ -1060,11 +1081,11 @@ footer {
     <!-- Description area (sits under text on desktop) -->
     <div class="framework-desc" id="frameworkDesc">
       <p class="framework-desc__text is-default is-visible">Hover over each pillar to explore our approach</p>
-      <p class="framework-desc__text" data-sector="0">Trust is the foundation. We help leaders create psychological safety, build authentic connections, and establish the credibility that drives collaboration.</p>
-      <p class="framework-desc__text" data-sector="1">Continuous improvement separates good from great. We embed growth mindsets and habits that compound into sustained excellence.</p>
-      <p class="framework-desc__text" data-sector="2">High performance is a team sport. We develop the communication, alignment, and shared accountability that turn individuals into cohesive units.</p>
-      <p class="framework-desc__text" data-sector="3">When the stakes are highest, preparation meets mindset. We equip leaders to stay composed, make clear decisions, and inspire confidence in critical moments.</p>
-      <p class="framework-desc__text" data-sector="4">Strategy without execution is just theory. We help teams translate potential into measurable outcomes that matter.</p>
+      <p class="framework-desc__text" data-sector="0">Culture starts with trust. We help teams build genuine connection, embed a sense of belonging and accelerate the cohesion that turns a group of individuals into a high-performing unit.</p>
+      <p class="framework-desc__text" data-sector="1">High-performing teams are developed, not discovered. Drawing on techniques refined at the highest levels of elite sport, we help managers and leaders accelerate learning cycles, close performance gaps and build cultures where everyone is growing.</p>
+      <p class="framework-desc__text" data-sector="2">The best results come from aligned teams, not just talented individuals. We develop leaders who create genuine buy-in, shared accountability and the collective momentum that unlocks team potential.</p>
+      <p class="framework-desc__text" data-sector="3">AI, rapid change and relentless uncertainty have raised the stakes for every decision. We equip your people with the mindset and tools to perform at their best precisely when the environment is most demanding.</p>
+      <p class="framework-desc__text" data-sector="4">Results are earned through habits, not intention. We help teams communicate with clarity, refine how they work and build the disciplines that compound into sustained, long-term performance.</p>
     </div>
   </div>
 
@@ -1157,22 +1178,27 @@ footer {
     <div class="framework-label" data-sector="0">
       <span class="framework-label__num">01</span>
       <span class="framework-label__title">Building Trust</span>
+      <span class="framework-label__desc">Culture starts with trust. We help teams build genuine connection, embed a sense of belonging and accelerate the cohesion that turns a group of individuals into a high-performing unit.</span>
     </div>
     <div class="framework-label" data-sector="1">
       <span class="framework-label__num">02</span>
       <span class="framework-label__title">Growing Excellence</span>
+      <span class="framework-label__desc">High-performing teams are developed, not discovered. Drawing on techniques refined at the highest levels of elite sport, we help managers and leaders accelerate learning cycles, close performance gaps and build cultures where everyone is growing.</span>
     </div>
     <div class="framework-label" data-sector="2">
       <span class="framework-label__num">03</span>
       <span class="framework-label__title">Working Together</span>
+      <span class="framework-label__desc">The best results come from aligned teams, not just talented individuals. We develop leaders who create genuine buy-in, shared accountability and the collective momentum that unlocks team potential.</span>
     </div>
     <div class="framework-label" data-sector="3">
       <span class="framework-label__num">04</span>
       <span class="framework-label__title">Performing<br>Under Pressure</span>
+      <span class="framework-label__desc">AI, rapid change and relentless uncertainty have raised the stakes for every decision. We equip your people with the mindset and tools to perform at their best precisely when the environment is most demanding.</span>
     </div>
     <div class="framework-label" data-sector="4">
       <span class="framework-label__num">05</span>
       <span class="framework-label__title">Delivering Results</span>
+      <span class="framework-label__desc">Results are earned through habits, not intention. We help teams communicate with clarity, refine how they work and build the disciplines that compound into sustained, long-term performance.</span>
     </div>
 
   </div>
@@ -1184,35 +1210,35 @@ footer {
       <span class="framework-list-item__num">01</span>
       <div>
         <span class="framework-list-item__title">Building Trust</span>
-        <p class="framework-list-item__desc">Trust is the foundation. We help leaders create psychological safety, build authentic connections, and establish the credibility that drives collaboration.</p>
+        <p class="framework-list-item__desc">Culture starts with trust. We help teams build genuine connection, embed a sense of belonging and accelerate the cohesion that turns a group of individuals into a high-performing unit.</p>
       </div>
     </div>
     <div class="framework-list-item" data-sector="1">
       <span class="framework-list-item__num">02</span>
       <div>
         <span class="framework-list-item__title">Growing Excellence</span>
-        <p class="framework-list-item__desc">Continuous improvement separates good from great. We embed growth mindsets and habits that compound into sustained excellence.</p>
+        <p class="framework-list-item__desc">High-performing teams are developed, not discovered. Drawing on techniques refined at the highest levels of elite sport, we help managers and leaders accelerate learning cycles, close performance gaps and build cultures where everyone is growing.</p>
       </div>
     </div>
     <div class="framework-list-item" data-sector="2">
       <span class="framework-list-item__num">03</span>
       <div>
         <span class="framework-list-item__title">Working Together</span>
-        <p class="framework-list-item__desc">High performance is a team sport. We develop the communication, alignment, and shared accountability that turn individuals into cohesive units.</p>
+        <p class="framework-list-item__desc">The best results come from aligned teams, not just talented individuals. We develop leaders who create genuine buy-in, shared accountability and the collective momentum that unlocks team potential.</p>
       </div>
     </div>
     <div class="framework-list-item" data-sector="3">
       <span class="framework-list-item__num">04</span>
       <div>
         <span class="framework-list-item__title">Performing Under Pressure</span>
-        <p class="framework-list-item__desc">When the stakes are highest, preparation meets mindset. We equip leaders to stay composed, make clear decisions, and inspire confidence in critical moments.</p>
+        <p class="framework-list-item__desc">AI, rapid change and relentless uncertainty have raised the stakes for every decision. We equip your people with the mindset and tools to perform at their best precisely when the environment is most demanding.</p>
       </div>
     </div>
     <div class="framework-list-item" data-sector="4">
       <span class="framework-list-item__num">05</span>
       <div>
         <span class="framework-list-item__title">Delivering Results</span>
-        <p class="framework-list-item__desc">Strategy without execution is just theory. We help teams translate potential into measurable outcomes that matter.</p>
+        <p class="framework-list-item__desc">Results are earned through habits, not intention. We help teams communicate with clarity, refine how they work and build the disciplines that compound into sustained, long-term performance.</p>
       </div>
     </div>
   </div>
