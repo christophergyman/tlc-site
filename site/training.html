@@ -623,6 +623,337 @@ nav.scrolled .nav-links a.active { color: var(--teal); }
   color: var(--grey-400);
 }
 
+/* ─── OUR WORK CAROUSEL ─── */
+.work {
+  padding: 7rem var(--page-pad);
+  background: var(--ink);
+  color: var(--pure-white);
+  overflow: hidden;
+}
+.work__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.work__header {
+  margin-bottom: 3.5rem;
+}
+.work__header .section-tag {
+  display: inline-block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 0.75rem;
+}
+.work__title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.work.visible .work__title {
+  opacity: 1;
+  transform: translateY(0);
+}
+.work__title em {
+  font-style: italic;
+  color: #3bbfb0;
+}
+.work__carousel-wrap {
+  position: relative;
+  overflow: hidden;
+  padding: 0 0.5rem;
+}
+.work__track {
+  display: flex;
+  gap: 1.5rem;
+  transition: transform 0.5s cubic-bezier(0.22,1,0.36,1);
+}
+.work__card {
+  flex: 0 0 calc((100% - 3rem) / 2.5);
+  min-width: 0;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: default;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.22,1,0.36,1),
+              transform 0.6s cubic-bezier(0.22,1,0.36,1),
+              background 0.35s ease,
+              border-color 0.35s ease,
+              box-shadow 0.35s ease;
+}
+.work.visible .work__card { opacity: 1; transform: translateY(0); }
+.work.visible .work__card[data-work="0"] { transition-delay: 0.15s; }
+.work.visible .work__card[data-work="1"] { transition-delay: 0.25s; }
+.work.visible .work__card[data-work="2"] { transition-delay: 0.35s; }
+.work.visible .work__card[data-work="3"] { transition-delay: 0.45s; }
+.work__card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(26,138,125,0.3);
+  box-shadow: 0 12px 32px -8px rgba(26,138,125,0.2),
+              0 4px 12px rgba(20,28,27,0.08);
+  background: rgba(255,255,255,0.06);
+}
+.work__card-image {
+  aspect-ratio: 3 / 2;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+}
+.work__card-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.work__card-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.15rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+.work__card-teaser {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.55);
+}
+.work__card-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+  background: none;
+  border: 1px solid rgba(26,138,125,0.4);
+  color: #3bbfb0;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+  align-self: flex-start;
+}
+.work__card-btn:hover {
+  background: var(--teal);
+  border-color: var(--teal);
+  color: var(--pure-white);
+}
+.work__card-btn svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.work__nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(26,138,125,0.15);
+  color: var(--pure-white);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: background 0.3s ease, border-color 0.3s ease, opacity 0.3s ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.work__nav-btn:hover {
+  background: var(--teal);
+  border-color: var(--teal);
+}
+.work__nav-btn svg {
+  width: 20px;
+  height: 20px;
+}
+.work__nav-btn--prev { left: -0.5rem; }
+.work__nav-btn--next { right: -0.5rem; }
+.work__dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 2.5rem;
+}
+.work__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+.work__dot.active {
+  background: var(--teal);
+  transform: scale(1.35);
+}
+.work__dot:hover:not(.active) {
+  background: rgba(255,255,255,0.4);
+}
+
+/* ─── Work Modal ─── */
+.work-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.35s, opacity 0.35s;
+}
+.work-modal.is-open {
+  visibility: visible;
+  opacity: 1;
+}
+.work-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(10,14,13,0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.work-modal__content {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+  width: calc(100% - 3rem);
+  max-height: 85vh;
+  overflow-y: auto;
+  background: var(--pure-white);
+  border-radius: 16px;
+  padding: 0;
+  transform: translateY(24px) scale(0.97);
+  transition: transform 0.4s cubic-bezier(0.22,1,0.36,1);
+  color: var(--ink);
+}
+.work-modal.is-open .work-modal__content {
+  transform: translateY(0) scale(1);
+}
+.work-modal__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(20,28,27,0.7);
+  color: var(--pure-white);
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: background 0.3s ease;
+  line-height: 1;
+}
+.work-modal__close:hover {
+  background: var(--ink);
+}
+.work-modal__image {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  border-radius: 16px 16px 0 0;
+}
+.work-modal__body {
+  padding: 2rem 2.5rem 2.5rem;
+}
+.work-modal__title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+  color: var(--ink);
+}
+.work-modal__desc {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--grey-600);
+  margin-bottom: 1.5rem;
+}
+.work-modal__section-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 0.75rem;
+}
+.work-modal__highlights ul,
+.work-modal__outcomes ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+.work-modal__highlights li,
+.work-modal__outcomes li {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--ink-light);
+  padding-left: 1rem;
+  position: relative;
+}
+.work-modal__highlights li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--teal);
+}
+.work-modal__outcomes li {
+  font-weight: 500;
+  color: var(--ink);
+}
+.work-modal__outcomes li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  width: 6px;
+  height: 6px;
+  border-radius: 2px;
+  background: #3bbfb0;
+}
+
 /* ─── CTA ─── */
 .cta {
   padding: 7rem var(--page-pad); text-align: center;
@@ -806,6 +1137,8 @@ footer {
   .impact { padding: 6rem var(--page-pad); }
   .impact__grid { gap: 1.25rem; }
   .impact__card { padding: 1.4rem 1.3rem; }
+  .work { padding: 6rem var(--page-pad); }
+  .work__card { flex: 0 0 calc((100% - 1.5rem) / 2); }
 }
 
 @media (max-width: 900px) {
@@ -834,6 +1167,10 @@ footer {
   .impact__header { margin-bottom: 3rem; }
   footer { grid-template-columns: 1fr 1fr; gap: 2rem; }
   .footer-brand { grid-column: 1 / -1; }
+  .work { padding: 5.5rem var(--page-pad); }
+  .work__card { flex: 0 0 calc((100% - 1rem) / 1.5); }
+  .work__nav-btn { display: none; }
+  .work__header { margin-bottom: 2.5rem; }
 }
 
 /* ─── RESPONSIVE ─── */
@@ -1007,6 +1344,16 @@ footer {
   .impact__intro { font-size: 0.9rem; }
   .impact__bold { font-size: 1.15rem; }
 
+  /* Our Work */
+  .work { padding: 4.5rem var(--page-pad); }
+  .work__card { flex: 0 0 calc(100% - 2.5rem); }
+  .work__nav-btn { display: none; }
+  .work__header { margin-bottom: 2rem; }
+  .work__card-body { padding: 1.25rem; }
+  .work-modal__body { padding: 1.5rem; }
+  .work-modal__content { width: calc(100% - 2rem); max-height: 90vh; }
+  .work-modal__title { font-size: 1.3rem; }
+
   /* CTA */
   .cta { padding: 5rem var(--page-pad); }
   .cta-pill { max-width: calc(100vw - 3rem); height: 3.5rem; }
@@ -1032,6 +1379,8 @@ footer {
   .impact__intro { font-size: 0.85rem; }
   .impact__bold { font-size: 1.05rem; }
   .impact__card { padding: 1.25rem 1rem; }
+  .work { padding: 3.5rem var(--page-pad); }
+  .work__title { font-size: 1.5rem; }
 }
 </style>
 </head>
@@ -1319,6 +1668,87 @@ footer {
 </div>
 </section>
 
+<!-- OUR WORK -->
+<section class="work" id="ourWork">
+  <div class="work__inner">
+    <div class="work__header">
+      <p class="section-tag">Case Studies</p>
+      <h2 class="work__title">Explore Some of our <em>Work</em></h2>
+    </div>
+
+    <div class="work__carousel-wrap">
+      <div class="work__track" id="workTrack">
+
+        <div class="work__card" data-work="0">
+          <div class="work__card-image" style="background-image: url('Photos/case-study-1.webp');"></div>
+          <div class="work__card-body">
+            <h3 class="work__card-title">Belonging as a Performance Anchor</h3>
+            <p class="work__card-teaser">Partnered with Hong Kong's largest education provider for an offsite for thirty leaders on embedding organisational values.</p>
+            <button class="work__card-btn" data-work-modal="0">Learn More <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+          </div>
+        </div>
+
+        <div class="work__card" data-work="1">
+          <div class="work__card-image" style="background-image: url('Photos/case-study-2.webp');"></div>
+          <div class="work__card-body">
+            <h3 class="work__card-title">Growing Excellence in Teams</h3>
+            <p class="work__card-teaser">Training for 150 European directors from a global conglomerate, embedding a stronger coaching culture across the organisation.</p>
+            <button class="work__card-btn" data-work-modal="1">Learn More <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+          </div>
+        </div>
+
+        <div class="work__card" data-work="2">
+          <div class="work__card-image" style="background-image: url('Photos/case-study-3.webp');"></div>
+          <div class="work__card-body">
+            <h3 class="work__card-title">The Modern Leader</h3>
+            <p class="work__card-teaser">A five-part programme for associates at a leading law firm, built around principles from elite performance environments.</p>
+            <button class="work__card-btn" data-work-modal="2">Learn More <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+          </div>
+        </div>
+
+        <div class="work__card" data-work="3">
+          <div class="work__card-image" style="background-image: url('Photos/case-study-4.webp');"></div>
+          <div class="work__card-body">
+            <h3 class="work__card-title">Building Resilience</h3>
+            <p class="work__card-teaser">Resilience-focused programme for a fintech company, combining performance insights with dynamic outdoor workshops.</p>
+            <button class="work__card-btn" data-work-modal="3">Learn More <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+          </div>
+        </div>
+
+      </div>
+
+      <button class="work__nav-btn work__nav-btn--prev" id="workPrev" aria-label="Previous">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <button class="work__nav-btn work__nav-btn--next" id="workNext" aria-label="Next">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+      </button>
+    </div>
+
+    <div class="work__dots" id="workDots">
+      <span class="work__dot active" data-dot="0"></span>
+      <span class="work__dot" data-dot="1"></span>
+      <span class="work__dot" data-dot="2"></span>
+      <span class="work__dot" data-dot="3"></span>
+    </div>
+  </div>
+</section>
+
+<!-- WORK MODAL -->
+<div class="work-modal" id="workModal">
+  <div class="work-modal__backdrop"></div>
+  <div class="work-modal__content">
+    <button class="work-modal__close" aria-label="Close">&times;</button>
+    <div class="work-modal__image" id="workModalImage"></div>
+    <div class="work-modal__body">
+      <h3 class="work-modal__title" id="workModalTitle"></h3>
+      <div class="work-modal__desc" id="workModalDesc"></div>
+      <div class="work-modal__highlights" id="workModalHighlights"></div>
+      <div class="work-modal__outcomes" id="workModalOutcomes"></div>
+    </div>
+  </div>
+</div>
+
 <!-- CTA -->
 <section class="cta" id="contact">
   <h2>Let's <em>Talk</em></h2>
@@ -1576,6 +2006,187 @@ window.addEventListener('scroll', () => {
     });
   }, { threshold: 0.1 });
   obs.observe(impact);
+})();
+
+// ─── Our Work scroll reveal ───
+(function() {
+  var workSection = document.getElementById('ourWork');
+  if (!workSection) return;
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  obs.observe(workSection);
+})();
+
+// ─── Our Work carousel ───
+(function() {
+  var track = document.getElementById('workTrack');
+  var prevBtn = document.getElementById('workPrev');
+  var nextBtn = document.getElementById('workNext');
+  var dotsContainer = document.getElementById('workDots');
+  if (!track || !prevBtn || !nextBtn) return;
+
+  var cards = track.querySelectorAll('.work__card');
+  var dots = dotsContainer.querySelectorAll('.work__dot');
+  var currentIndex = 0;
+  var startX = 0;
+  var isDragging = false;
+
+  function getVisibleCount() {
+    var w = window.innerWidth;
+    if (w > 1024) return 2.5;
+    if (w > 900) return 2;
+    if (w > 768) return 1.5;
+    return 1;
+  }
+
+  function getMaxIndex() {
+    return Math.max(0, cards.length - Math.floor(getVisibleCount()));
+  }
+
+  function updateCarousel() {
+    var card = cards[0];
+    var gap = parseFloat(getComputedStyle(track).gap) || 24;
+    var cardWidth = card.offsetWidth + gap;
+    var offset = currentIndex * cardWidth;
+    track.style.transform = 'translateX(-' + offset + 'px)';
+
+    dots.forEach(function(d, i) {
+      d.classList.toggle('active', i === currentIndex);
+    });
+
+    prevBtn.style.opacity = currentIndex === 0 ? '0.3' : '1';
+    prevBtn.style.pointerEvents = currentIndex === 0 ? 'none' : 'auto';
+    nextBtn.style.opacity = currentIndex >= getMaxIndex() ? '0.3' : '1';
+    nextBtn.style.pointerEvents = currentIndex >= getMaxIndex() ? 'none' : 'auto';
+  }
+
+  prevBtn.addEventListener('click', function() {
+    if (currentIndex > 0) { currentIndex--; updateCarousel(); }
+  });
+  nextBtn.addEventListener('click', function() {
+    if (currentIndex < getMaxIndex()) { currentIndex++; updateCarousel(); }
+  });
+
+  dots.forEach(function(dot) {
+    dot.addEventListener('click', function() {
+      var idx = parseInt(dot.dataset.dot);
+      if (idx <= getMaxIndex()) { currentIndex = idx; updateCarousel(); }
+    });
+  });
+
+  track.addEventListener('touchstart', function(e) {
+    startX = e.touches[0].clientX;
+    isDragging = true;
+  }, { passive: true });
+  track.addEventListener('touchend', function(e) {
+    if (!isDragging) return;
+    isDragging = false;
+    var diff = startX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0 && currentIndex < getMaxIndex()) currentIndex++;
+      else if (diff < 0 && currentIndex > 0) currentIndex--;
+      updateCarousel();
+    }
+  }, { passive: true });
+
+  window.addEventListener('resize', function() {
+    currentIndex = Math.min(currentIndex, getMaxIndex());
+    updateCarousel();
+  });
+
+  updateCarousel();
+})();
+
+// ─── Our Work modal ───
+(function() {
+  var modal = document.getElementById('workModal');
+  if (!modal) return;
+  var backdrop = modal.querySelector('.work-modal__backdrop');
+  var closeBtn = modal.querySelector('.work-modal__close');
+  var titleEl = document.getElementById('workModalTitle');
+  var descEl = document.getElementById('workModalDesc');
+  var highlightsEl = document.getElementById('workModalHighlights');
+  var outcomesEl = document.getElementById('workModalOutcomes');
+  var imageEl = document.getElementById('workModalImage');
+
+  var caseStudies = [
+    {
+      title: 'Belonging as a Performance Anchor',
+      image: "url('Photos/case-study-1.webp')",
+      desc: '<p>We partnered with Hong Kong\u2019s largest education provider to deliver an offsite for thirty leaders focused on embedding organisational values more deeply across their two dozen schools.</p><p>Creating a tailored multi-session programme, we explored the neuroscience of belonging and how it underpins the sustained success of high-performing teams, strengthening collaboration, improving retention and ultimately driving stronger performance.</p>',
+      highlights: ['Storytelling keynote connecting the theory with compelling examples from high performing organisations', 'Interactive workshops focusing on creativity, implementation and communicating the all-important \u2018why\u2019', 'Facilitated discussion that identified the obstacles, challenges and opportunities'],
+      outcomes: ['90% of participants reported a stronger connection to company values', '4.7/5 overall impact score']
+    },
+    {
+      title: 'Growing Excellence in Teams',
+      image: "url('Photos/case-study-2.webp')",
+      desc: '<p>We were invited to deliver training for 150 European directors from a global conglomerate at their regional offsite, with the objective of embedding a stronger coaching culture across the organisation.</p><p>Blending coaching science with practical insights from elite sport, participants were placed in a series of experiential simulations designed to practise feedback, decision-making and real coaching conversations.</p><p>The session reframed feedback as a powerful leadership tool rather than a threat \u2014 equipping leaders with practical techniques to develop their people, influence team behaviours and embed a culture of continuous improvement across the organisation.</p>',
+      highlights: ['Coaching science blended with elite sport insights', 'Experiential simulations for practising feedback and decision-making', 'Real coaching conversations in applied settings'],
+      outcomes: ['96% of participants reported greater confidence in providing real time feedback', '22% increase in teams adopting open-ended dialogue to strengthen ownership and accountability', '4.6/5 overall impact score']
+    },
+    {
+      title: 'The Modern Leader',
+      image: "url('Photos/case-study-3.webp')",
+      desc: '<p>We delivered a five-part programme for associates at a leading law firm. Drawing on principles from elite performance environments, this programme was built around deliberate practice, unique insights and applied coaching \u2014 ensuring leadership development translated into sustained performance and tangible value creation.</p><p>Blending The Leadership Circle \u2018Performance Anchor Framework\u2019 with the associates\u2019 current context and objectives, the programme included:</p>',
+      highlights: ['\u2018Building a Performance-Driven Culture\u2019 \u2014 How leaders construct a culture built on trust and belonging that creates sustained performance', '\u2018Growing Excellence in Teams\u2019 \u2014 The art of coaching, motivating and adapting to individuals in teams', '\u2018Collaboration Wins\u2019 \u2014 Why collaboration matters and how to effectively leverage it to enhance business performance', '\u2018The Resilient Leader\u2019 \u2014 Building resilience in individuals and embedding it within teams', '\u2018Negotiating with Conviction\u2019 \u2014 Succeeding in critical negotiations \u2013 within teams and with clients'],
+      outcomes: []
+    },
+    {
+      title: 'Building Resilience',
+      image: "url('Photos/case-study-4.webp')",
+      desc: '<p>One of the main focuses for a fintech company we\u2019ve worked with has been to develop resilience within individuals and the collective. With rapid technological shifts, the accelerating impact of AI and constant pressure to adapt, leaders and teams must be able to remain composed, agile and decisive in the face of uncertainty.</p><p>As part of an offsite, we ran a resilience-focused programme combining performance insights with a dynamic outdoor workshop. Participants were placed in a series of evolving scenarios where expectations continually shifted and unexpected challenges were introduced, forcing teams to adapt in real time. The experience highlighted how resilience, clear communication and collective problem-solving enable teams to maintain performance even when conditions change.</p>',
+      highlights: ['Performance insights combined with dynamic outdoor workshop', 'Evolving scenarios with shifting expectations and unexpected challenges', 'Real-time adaptation and collective problem-solving'],
+      outcomes: ['86% role impact reported with individuals feeling more confident in their response to pressure', '4.6/5 overall impact score']
+    }
+  ];
+
+  function openModal(index) {
+    var data = caseStudies[index];
+    if (!data) return;
+    titleEl.textContent = data.title;
+    imageEl.style.backgroundImage = data.image;
+    descEl.innerHTML = data.desc;
+
+    if (data.highlights.length) {
+      highlightsEl.innerHTML = '<p class="work-modal__section-label">Programme Highlights</p><ul>' +
+        data.highlights.map(function(h) { return '<li>' + h + '</li>'; }).join('') + '</ul>';
+    } else {
+      highlightsEl.innerHTML = '';
+    }
+
+    if (data.outcomes.length) {
+      outcomesEl.innerHTML = '<p class="work-modal__section-label">The Outcomes</p><ul>' +
+        data.outcomes.map(function(o) { return '<li>' + o + '</li>'; }).join('') + '</ul>';
+    } else {
+      outcomesEl.innerHTML = '';
+    }
+
+    modal.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('[data-work-modal]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      openModal(parseInt(btn.dataset.workModal));
+    });
+  });
+
+  closeBtn.addEventListener('click', closeModal);
+  backdrop.addEventListener('click', closeModal);
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+  });
 })();
 
 // ─── CTA scroll reveal ───
