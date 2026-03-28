@@ -4,6 +4,8 @@ COPY site/the-leadership-circle.html /usr/share/nginx/html/index.html
 COPY site/about.html /usr/share/nginx/html/about.html
 COPY site/training.html /usr/share/nginx/html/training.html
 COPY site/offsites.html /usr/share/nginx/html/offsites.html
+COPY site/shared.css /usr/share/nginx/html/shared.css
+COPY site/shared.js /usr/share/nginx/html/shared.js
 COPY site/Logos/ /usr/share/nginx/html/Logos/
 COPY site/Photos/ /usr/share/nginx/html/Photos/
 EXPOSE 80
