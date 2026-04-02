@@ -197,12 +197,11 @@
   transform: translateY(0);
   transition-delay: 1.2s;
 }
-.framework-wheel.has-active .framework-label:not(.is-charged) {
-  opacity: 0.3;
+.framework-wheel.has-active .framework-label:not(.is-active) {
+  opacity: 0.35;
   transition-delay: 0s;
 }
-.framework-wheel.has-active .framework-label.is-active,
-.framework-wheel.has-active .framework-label.is-charged {
+.framework-wheel.has-active .framework-label.is-active {
   opacity: 1;
   transition-delay: 0s;
 }
@@ -245,7 +244,7 @@
 .framework-label[data-sector="3"] { top: 60%; right: 80%; text-align: right; }
 .framework-label[data-sector="4"] { top: 16%; right: 70%; text-align: right; }
 
-/* Label descriptions — always visible beneath headings */
+/* Label descriptions — hidden by default, fade in on active */
 .framework-label__desc {
   display: block;
   font-family: 'DM Sans', sans-serif;
@@ -256,6 +255,15 @@
   margin-top: 0.35rem;
   max-width: 190px;
   white-space: normal;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.4s ease, max-height 0.4s ease;
+}
+.framework-label.is-active .framework-label__desc {
+  opacity: 1;
+  max-height: 200px;
+  color: rgba(255,255,255,0.65);
 }
 .framework-label[data-sector="3"] .framework-label__desc,
 .framework-label[data-sector="4"] .framework-label__desc {
@@ -1283,7 +1291,6 @@
   <div class="impact__header">
     <h2 class="impact__title">Designed For <em>Impact</em></h2>
     <p class="impact__intro">Lasting behavioural change rarely comes from passive learning. That&rsquo;s why our sessions are designed to energise, spark curiosity and create moments that stay with people long after the session ends.</p>
-    <p class="impact__bold">We couldn&rsquo;t find it &mdash; so we built our own.</p>
   </div>
 
   <div class="impact__grid">
@@ -1512,11 +1519,10 @@
       g.classList.toggle('is-charged', chargedSectors.has(idx));
     });
 
-    // Update label classes
+    // Update label classes — only mark active, no charged persistence
     labels.forEach(function(l) {
       var idx = parseInt(l.dataset.sector);
       l.classList.toggle('is-active', idx === sectorIndex);
-      l.classList.toggle('is-charged', chargedSectors.has(idx));
     });
 
     // Show description for current sector
@@ -1537,7 +1543,7 @@
       chargedSectors.clear();
       wheel.classList.remove('has-active', 'is-complete');
       sectorGroups.forEach(function(g) { g.classList.remove('is-active', 'is-charged'); });
-      labels.forEach(function(l) { l.classList.remove('is-active', 'is-charged'); });
+      labels.forEach(function(l) { l.classList.remove('is-active'); });
       descTexts.forEach(function(t) {
         t.classList.toggle('is-visible', t.classList.contains('is-default'));
       });
