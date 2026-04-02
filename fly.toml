@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for tlc-site on 2026-03-26T09:09:28Z
+# fly.toml app configuration file generated for the-leadershipcircle on 2026-04-02T20:03:28Z
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'tlc-site'
+app = 'the-leadershipcircle'
 primary_region = 'nrt'
 
 [build]
@@ -17,6 +17,7 @@ primary_region = 'nrt'
   processes = ['app']
 
 [[vm]]
+  memory = '1gb'
   cpu_kind = 'shared'
   cpus = 1
   memory_mb = 256
